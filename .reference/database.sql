@@ -38,3 +38,11 @@ CREATE TABLE `cardsairline` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `sips`.`partners` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `imgLink` VARCHAR(100) NOT NULL,
+  `imgAlt` VARCHAR(45) NOT NULL,
+  `link` VARCHAR(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC));

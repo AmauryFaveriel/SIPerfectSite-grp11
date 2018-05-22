@@ -6,7 +6,12 @@
  * Time: 11:09
  */
 
-function publicFooterSQL($pdo){
+/**
+ * @param PDO $pdo
+ * @return array
+ */
+function publicFooterSQL(PDO $pdo): array
+{
     $requete="
     SELECT
     `imgLink`,

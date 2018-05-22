@@ -18,10 +18,18 @@ if(!isset($_GET['action'])){
 }
 
 switch($action) {
+
+    case 'adminListArticle':
+        adminListArticle($pdo);
+        break;
+    case 'adminAddArticle':
+        adminAddArticle($pdo);
+        break;
+    case 'adminDeleteArticle':
+        adminDeleteArticle($pdo);
+        break;
     case 'list':
-        break;
-    case 'add':
-        break;
     default:
+        adminList();
         break;
 }

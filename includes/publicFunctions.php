@@ -8,7 +8,8 @@
 
 require_once 'publicSQL.php';
 
-function publicHeader(){
+function publicHeader()
+{
 ?>
 
     <!doctype html>
@@ -25,7 +26,8 @@ function publicHeader(){
 <?php
 }
 
-function publicFooter($pdo){
+function publicFooter($pdo)
+{
 $data = publicFooterSQL($pdo)
 ?>
 <footer>

@@ -6,16 +6,16 @@
  * Time: 13:42
  */
 
+/**
+ * @param PDO $pdo
+ * @return array
+ */
 function adminListArticleSQL(PDO $pdo)
 {
     $requete="
     SELECT
     id,
-    title, 
-    slug, 
-    content, 
-    imgLink, 
-    imgAlt
+    title
     FROM
     `article`
     ;";
@@ -24,6 +24,10 @@ function adminListArticleSQL(PDO $pdo)
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
 
+/**
+ * @param PDO $pdo
+ * @return mixed
+ */
 function adminShowArticleSQL(PDO $pdo)
 {
     $requete="
@@ -45,7 +49,10 @@ function adminShowArticleSQL(PDO $pdo)
     return $stmt -> fetch(PDO::FETCH_ASSOC);
 }
 
-function adminAddArticleSQL(PDO $pdo)
+/**
+ * @param PDO $pdo
+ */
+function adminAddArticleSQL(PDO $pdo): void
 {
     $requete="
     INSERT INTO
@@ -71,7 +78,10 @@ function adminAddArticleSQL(PDO $pdo)
     $stmt->execute();
 }
 
-function adminDeleteArticleSQL(PDO $pdo)
+/**
+ * @param PDO $pdo
+ */
+function adminDeleteArticleSQL(PDO $pdo): void
 {
     $requete="
     DELETE FROM
@@ -82,4 +92,31 @@ function adminDeleteArticleSQL(PDO $pdo)
     $stmt = $pdo -> prepare($requete);
     $stmt -> bindValue(':id', $_POST['page']['id']);
     $stmt -> execute();
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminEditArticleSQL(PDO $pdo): void
+{
+    $requete="
+    UPDATE
+    `article`
+    SET
+    title = :title, 
+    slug = :slug,
+    content = :content,
+    imgLink = :imgLink,
+    imgAlt = :imgAlt
+    WHERE
+    id = :id
+    ;";
+    $stmt = $pdo -> prepare($requete);
+    $stmt->bindValue(':id', $_POST['page']['id']);
+    $stmt->bindValue(':title', $_POST['page']['title']);
+    $stmt->bindValue(':slug', $_POST['page']['slug']);
+    $stmt->bindValue(':content', $_POST['page']['content']);
+    $stmt->bindValue(':imgLink', $_POST['page']['imgLink']);
+    $stmt->bindValue(':imgAlt', $_POST['page']['imgAlt']);
+    $stmt->execute();
 }

@@ -11,22 +11,24 @@ require_once '../includes/adminFunctions.php';
 
 define("PAGE_DEFAULT", "list");
 
-if(!isset($_GET['action'])){
-    $action = PAGE_DEFAULT;
-} else {
-    $action = $_GET['action'];
-}
+$action = $_GET['action'] ?? $_POST['action'] ?? PAGE_DEFAULT;
 
 switch($action) {
 
     case 'adminListArticle':
         adminListArticle($pdo);
         break;
+    case 'adminShowArticle':
+        adminShowArticle($pdo);
+        break;
     case 'adminAddArticle':
         adminAddArticle($pdo);
         break;
     case 'adminDeleteArticle':
         adminDeleteArticle($pdo);
+        break;
+    case 'adminEditArticle':
+        adminEditArticle($pdo);
         break;
     case 'list':
     default:

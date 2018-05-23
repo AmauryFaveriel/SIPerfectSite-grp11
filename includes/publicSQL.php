@@ -42,3 +42,44 @@ function publicFooterSQL(PDO $pdo): array
     $stmt -> execute();
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
+
+function publicListCardsSQL(PDO $pdo)
+{
+    $requete="
+    SELECT
+    title,
+    city,
+    country,
+    imgLink,
+    imgAlt,
+    link
+    FROM
+    `cards`
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function publicShowCardsSQL(PDO $pdo)
+{
+    $requete="
+    SELECT
+    title,
+    slug,
+    category,
+    adress,
+    description,
+    note,
+    imgLink,
+    imgAlt,
+    city,
+    country,
+    opening,
+    closing,
+    link,
+    nbTel
+    FROM
+    cards
+    "
+}

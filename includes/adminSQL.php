@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: mrfvr
+ * User: AmauryFaveriel
  * Date: 22/05/2018
  * Time: 13:42
  */
@@ -34,7 +34,8 @@ function adminShowArticleSQL(PDO $pdo)
     SELECT
     id,
     title, 
-    slug, 
+    slug,
+    category, 
     content, 
     imgLink, 
     imgAlt
@@ -58,13 +59,15 @@ function adminAddArticleSQL(PDO $pdo): void
     INSERT INTO
     `article`
     (title, 
-    slug, 
+    slug,
+    category, 
     content, 
     imgLink, 
     imgAlt) 
     VALUES 
     (:title, 
-    :slug, 
+    :slug,
+    :category, 
     :content, 
     :imgLink, 
     :imgAlt)
@@ -72,6 +75,7 @@ function adminAddArticleSQL(PDO $pdo): void
     $stmt=$pdo->prepare($requete);
     $stmt->bindValue(':title', htmlspecialchars($_POST['page']['title']), PDO::PARAM_STR);
     $stmt->bindValue(':slug', htmlspecialchars($_POST['page']['slug']), PDO::PARAM_STR);
+    $stmt->bindValue(':category', htmlspecialchars($_POST['page']['category']), PDO::PARAM_STR);
     $stmt->bindValue(':content', htmlspecialchars($_POST['page']['content']), PDO::PARAM_STR);
     $stmt->bindValue(':imgLink', htmlspecialchars($_POST['page']['imgLink']), PDO::PARAM_STR);
     $stmt->bindValue(':imgAlt', htmlspecialchars($_POST['page']['imgAlt']), PDO::PARAM_STR);
@@ -105,6 +109,7 @@ function adminEditArticleSQL(PDO $pdo): void
     SET
     title = :title, 
     slug = :slug,
+    category = :category,
     content = :content,
     imgLink = :imgLink,
     imgAlt = :imgAlt
@@ -114,6 +119,7 @@ function adminEditArticleSQL(PDO $pdo): void
     $stmt = $pdo -> prepare($requete);
     $stmt->bindValue(':title', htmlspecialchars($_POST['page']['title']), PDO::PARAM_STR);
     $stmt->bindValue(':slug', htmlspecialchars($_POST['page']['slug']), PDO::PARAM_STR);
+    $stmt->bindValue(':category', htmlspecialchars($_POST['page']['category']), PDO::PARAM_STR);
     $stmt->bindValue(':content', htmlspecialchars($_POST['page']['content']), PDO::PARAM_STR);
     $stmt->bindValue(':imgLink', htmlspecialchars($_POST['page']['imgLink']), PDO::PARAM_STR);
     $stmt->bindValue(':imgAlt', htmlspecialchars($_POST['page']['imgAlt']), PDO::PARAM_STR);
@@ -220,6 +226,9 @@ function adminDeleteCardsSQL(PDO $pdo): void
     $stmt -> execute();
 }
 
+/**
+ * @param PDO $pdo
+ */
 function adminEditCardsSQL(PDO $pdo): void
 {
     $requete="
@@ -248,4 +257,85 @@ function adminEditCardsSQL(PDO $pdo): void
     $stmt->bindValue(':imgLink', htmlspecialchars($_POST['page']['imgLink']));
     $stmt->bindValue(':imgAlt', htmlspecialchars($_POST['page']['imgAlt']));
     $stmt->execute();
+}
+
+/**
+ * @param PDO $pdo
+ * @return array
+ */
+function adminListPartnersSQL(PDO $pdo)
+{
+    $requete="
+    SELECT
+    id,
+    imgLink,
+    imgAlt
+    FROM
+    `partners`
+    ;";
+    $stmt = $pdo -> prepare($requete);
+    $stmt -> execute();
+    return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
+ * @param PDO $pdo
+ * @return mixed
+ */
+function adminShowPartnersSQL(PDO $pdo)
+{
+    $requete="
+    SELECT
+    id,
+    link,
+    imgLink,
+    imgAlt
+    FROM
+    `partners`
+    WHERE
+    `id` = :id
+    ;";
+    $stmt = $pdo -> prepare($requete);
+    $stmt -> bindValue(':id', $_GET['id']);
+    $stmt -> execute();
+    return $stmt -> fetch(PDO::FETCH_ASSOC);
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminAddPartnersSQL(PDO $pdo): void
+{
+    $requete="
+    INSERT INTO
+    `partners`
+    (imgLink, 
+     imgAlt, 
+     link) 
+    VALUES 
+    (:imgLink,
+     :imgAlt, 
+     :link)
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->bindValue('link', htmlspecialchars($_POST['page']['link']));
+    $stmt->bindValue(':imgLink', htmlspecialchars($_POST['page']['imgLink']));
+    $stmt->bindValue(':imgAlt', htmlspecialchars($_POST['page']['imgAlt']));
+    $stmt->execute();
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminDeletePartnersSQL(PDO $pdo): void
+{
+    $requete="
+    DELETE FROM
+    `partners`
+    WHERE
+    `id` = :id 
+    ;";
+    $stmt = $pdo -> prepare($requete);
+    $stmt -> bindValue(':id', $_POST['page']['id']);
+    $stmt -> execute();
 }

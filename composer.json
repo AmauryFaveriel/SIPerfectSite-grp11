@@ -1,0 +1,13 @@
+{
+    "name": "amauryfaveriel/sips-grp11",
+    "description": "Semaine intensive perfect site groupe 11",
+    "authors": [
+        {
+            "name": "AmauryFaveriel",
+            "email": "mrfvrl@gmail.com"
+        }
+    ],
+    "require": {
+        "abraham/twitteroauth": "^0.7.4"
+    }
+}

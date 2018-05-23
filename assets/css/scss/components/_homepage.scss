@@ -50,15 +50,57 @@
     }
     
     .magazine{
+        padding: 100px 0;
+        
         .magazine-text{
+            .title-magazine{
+                @include font-bold;
+                font-size: 32px;
+            }
             
+            .subtitle-magazine{
+                @include font-regular;
+                color: #93959f;
+                font-size: 24px;
+                padding-top: 15px;
+            }
+            
+            .link-magazine{
+                font-size: 18px;
+                margin: 10px 0;
+            }
+            
+            .list-title-magazine{
+                @include font-regular;
+                margin-top: 40px;
+                margin-bottom: 8px;
+            }
+                
+            .list-items-magazine > li{
+                @include font-regular;
+                padding: 4px 0;
+            }
+            
+            .reduction-magazine{
+                @include font-regular;
+                color: #93959f;
+                font-size: 20px;
+                padding: 20px 0;
+            }
+            
+            .buy-magazine{
+                .btn{
+                    @include font-regular;
+                }
+            }
         }
+    }
         
         .magazine-photo{
             img{
                 max-width: 100%;
                 height: auto;
+                box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.05);
             }
         }
-    }
 }

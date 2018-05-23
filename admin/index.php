@@ -45,6 +45,18 @@ switch($action) {
     case 'adminEditCards':
         adminEditCards($pdo);
         break;
+    case 'adminListPartners':
+        adminListPartners($pdo);
+        break;
+    case 'adminShowPartners':
+        adminShowPartners($pdo);
+        break;
+    case 'adminAddPartners':
+        adminAddPartners($pdo);
+        break;
+    case 'adminDeletePartners':
+        adminDeletePartners($pdo);
+        break;
     case 'list':
     default:
         adminList();

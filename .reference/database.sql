@@ -8,9 +8,10 @@ CREATE TABLE `article` (
   `content` text NOT NULL,
   `imgLink` varchar(100) NOT NULL,
   `imgAlt` varchar(45) NOT NULL,
+  `category` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `cards` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -26,23 +27,11 @@ CREATE TABLE `cards` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `cardsairline` (
+CREATE TABLE `partners` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL,
-  `logoLink` varchar(100) NOT NULL,
-  `logoAlt` varchar(45) NOT NULL,
-  `nbMembers` int(11) NOT NULL,
-  `nbCountries` int(11) NOT NULL,
-  `nbPassengers` int(11) NOT NULL,
-  `description` text NOT NULL,
+  `imgLink` varchar(100) NOT NULL,
+  `imgAlt` varchar(45) NOT NULL,
+  `link` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `sips`.`partners` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `imgLink` VARCHAR(100) NOT NULL,
-  `imgAlt` VARCHAR(45) NOT NULL,
-  `link` VARCHAR(200) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC));
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

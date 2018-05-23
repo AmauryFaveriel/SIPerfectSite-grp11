@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: mrfvr
+ * User: AmauryFaveriel
  * Date: 22/05/2018
  * Time: 11:05
  */
@@ -50,7 +50,6 @@ function adminList()
 ?>
     <a href="../admin/index.php?action=adminListArticle">Articles</a><br>
     <a href="../admin/index.php?action=adminListCards">Fiches pratiques</a><br>
-    <a href="../admin/index.php?action=adminListCardsAirline">Fiches compagnies aériennes</a><br>
     <a href="../admin/index.php?action=adminListPartners">Partenaires</a><br>
 <?php
     adminFooter();
@@ -90,6 +89,7 @@ function adminShowArticle(PDO $pdo): void
     <a href="../admin/index.php?action=adminDeleteArticle&id=<?=$data['id']?>">Supprimer</a><br>
     <h1><?=$data['title']?></h1>
     <h2><?=$data['slug']?></h2>
+    <p><?=$data['category']?></p>
     <img src="<?=$data['imgLink']?>" alt="<?=$data['imgAlt']?>">
     <p><?=$data['content']?></p>
 <?php
@@ -105,11 +105,12 @@ function adminAddArticle(PDO $pdo): void
         header('Location:index.php?action=adminListArticle');
         exit;
     }
-    displayHomeLink();
     ?>
+    <a href="../admin/index.php?action=adminListArticle">Liste d'articles</a><br>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="page[title]">Titre :</label><input type="text" name="page[title]" id="page[title]"><br>
         <label for="page[slug]">Lien :</label><input type="text" name="page[slug]" id="page[slug]"><br>
+        <label for="page[category]">Categorie :</label><input type="text" name="page[category]" id="page[category]"><br>
         <label for="page[content]">Texte :</label><textarea name="page[content]" id="page[content]"></textarea><br>
         <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]"><br>
         <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]"><br>
@@ -216,8 +217,8 @@ function adminAddCards(PDO $pdo): void
         header('Location:index.php?action=adminListCards');
         exit;
     }
-    displayHomeLink();
     ?>
+    <a href="../admin/index.php?action=adminListCards">Liste fiches pratiques</a><br>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="page[title]">Titre :</label><input type="text" name="page[title]" id="page[title]"><br>
         <label for="page[slug]">Lien :</label><input type="text" name="page[slug]" id="page[slug]"><br>
@@ -277,6 +278,82 @@ function adminEditCards(PDO $pdo): void
         <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]" value="<?=$data['imgLink']?>"><br>
         <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]" value="<?=$data['imgAlt']?>"><br>
         <input type="submit" value="Modifier">
+    </form>
+    <?php
+}
+
+function adminListPartners(PDO $pdo)
+{
+    $data = adminListPartnersSQL($pdo);
+    adminHeader();
+    displayHomeLink();
+    ?>
+    <h1>Liste partenaires</h1>
+    <a href="../admin/index.php?action=adminAddPartners">Ajouter un partenaire</a>
+    <ul>
+        <?php foreach ($data as $page):?>
+            <li>
+                <img src="<?=$page['imgLink']?>" alt="<?=$page['imgAlt']?>">
+                <a href="../admin/index.php?action=adminShowPartners&id=<?=$page['id']?>">Détails</a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminShowPartners(PDO $pdo): void
+{
+    $data = adminShowPartnersSQL($pdo);
+    ?>
+    <a href="../admin/index.php?action=adminListPartners">Liste partenaires</a><br>
+    <a href="../admin/index.php?action=adminDeletePartners&id=<?=$data['id']?>">Supprimer</a><br>
+    <img src="<?=$data['imgLink']?>" alt="<?=$data['imgAlt']?>">
+    <p><?=$data['link']?></p>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminAddPartners(PDO $pdo): void
+{
+    if(isset($_POST['page'])){
+        adminAddPartnersSQL($pdo);
+        header('Location:index.php?action=adminListPartners');
+        exit;
+    }
+    ?>
+    <a href="../admin/index.php?action=adminListPartners">Liste partenaires</a><br>
+    <form action="" method="post" enctype="multipart/form-data">
+        <label for="page[link]">Lien :</label><input type="text" name="page[link]" id="page[link]"><br>
+        <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]"><br>
+        <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]"><br>
+        <input type="submit" value="Ajouter">
+    </form>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminDeletePartners(PDO $pdo): void
+{
+    if(isset($_POST['page'])){
+        adminDeletePartnersSQL($pdo);
+        header('Location:index.php?action=adminListPartners');
+        exit;
+    }
+    $data = adminShowPartnersSQL($pdo);
+    ?>
+    <a href="../admin/index.php?action=adminShowPartners&id=<?=$data['id']?>">Retour</a>
+    <h1>Voulez-vous supprimer ?</h1>
+    <img src="<?=$data['imgLink']?>" alt="<?=$data['imgAlt']?>">
+    <form action="" method="post">
+        <input type="hidden" name="page[id]" value="<?=$data['id']?>">
+        <input type="submit" value="supprimer">
     </form>
     <?php
 }

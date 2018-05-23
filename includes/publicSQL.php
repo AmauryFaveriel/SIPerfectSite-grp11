@@ -6,6 +6,24 @@
  * Time: 11:09
  */
 
+function publicListCards(PDO $pdo): array
+{
+    $requete="
+    SELECT
+    `title`,
+    `imgLink`,
+    `imgAlt`,
+    `city`,
+    `country`,
+    `link`
+    FROM
+    `cards`
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 /**
  * @param PDO $pdo
  * @return array

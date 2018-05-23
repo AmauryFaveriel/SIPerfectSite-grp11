@@ -160,7 +160,13 @@ function adminShowCardsSQL(PDO $pdo)
     description,
     note,
     imgLink,
-    imgAlt
+    imgAlt,
+    city,
+    country,
+    opening,
+    closing,
+    link,
+    nbTel
     FROM
     `cards`
     WHERE
@@ -187,7 +193,13 @@ function adminAddCardsSQL(PDO $pdo): void
      description, 
      note, 
      imgLink, 
-     imgAlt) 
+     imgAlt,
+     city,
+     country,
+     opening,
+     closing,
+     link,
+     nbTel) 
     VALUES 
     (:title,
      :slug,
@@ -196,7 +208,13 @@ function adminAddCardsSQL(PDO $pdo): void
      :description,
      :note,
      :imgLink,
-     :imgAlt)
+     :imgAlt,
+     :city,
+     :country,
+     :opening,
+     :closing,
+     :link,
+     :nbTel)
     ;";
     $stmt=$pdo->prepare($requete);
     $stmt->bindValue(':title', htmlspecialchars($_POST['page']['title']));
@@ -207,6 +225,12 @@ function adminAddCardsSQL(PDO $pdo): void
     $stmt->bindValue(':note', htmlspecialchars($_POST['page']['note']));
     $stmt->bindValue(':imgLink', htmlspecialchars($_POST['page']['imgLink']));
     $stmt->bindValue(':imgAlt', htmlspecialchars($_POST['page']['imgAlt']));
+    $stmt->bindValue(':city', htmlspecialchars($_POST['page']['city']));
+    $stmt->bindValue(':country', htmlspecialchars($_POST['page']['country']));
+    $stmt->bindValue(':opening', htmlspecialchars($_POST['page']['opening']));
+    $stmt->bindValue(':closing', htmlspecialchars($_POST['page']['closing']));
+    $stmt->bindValue(':link', htmlspecialchars($_POST['page']['link']));
+    $stmt->bindValue(':nbTel', htmlspecialchars($_POST['page']['nbTel']));
     $stmt->execute();
 }
 
@@ -242,7 +266,13 @@ function adminEditCardsSQL(PDO $pdo): void
     description = :description,
     note = :note,
     imgLink = :imgLink,
-    imgAlt = :imgAlt
+    imgAlt = :imgAlt,
+    city = :city,
+    country = :country,
+    opening = :opening,
+    closing = :closing,
+    link = :link,
+    nbTel = :nbTel
     WHERE
     id = :id
     ;";
@@ -256,6 +286,12 @@ function adminEditCardsSQL(PDO $pdo): void
     $stmt->bindValue(':note', htmlspecialchars($_POST['page']['note']));
     $stmt->bindValue(':imgLink', htmlspecialchars($_POST['page']['imgLink']));
     $stmt->bindValue(':imgAlt', htmlspecialchars($_POST['page']['imgAlt']));
+    $stmt->bindValue(':city', htmlspecialchars($_POST['page']['city']));
+    $stmt->bindValue(':country', htmlspecialchars($_POST['page']['country']));
+    $stmt->bindValue(':opening', htmlspecialchars($_POST['page']['opening']));
+    $stmt->bindValue(':closing', htmlspecialchars($_POST['page']['closing']));
+    $stmt->bindValue(':link', htmlspecialchars($_POST['page']['link']));
+    $stmt->bindValue(':nbTel', htmlspecialchars($_POST['page']['nbTel']));
     $stmt->execute();
 }
 

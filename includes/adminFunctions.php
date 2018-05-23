@@ -204,6 +204,13 @@ function adminShowCards(PDO $pdo): void
     <img src="<?=$data['imgLink']?>" alt="<?=$data['imgAlt']?>">
     <p><?=$data['description']?></p>
     <p><?=$data['note']?></p>
+    <p><?=$data['city']?></p>
+    <p><?=$data['country']?></p>
+    <p><?=$data['opening']?></p>
+    <p><?=$data['closing']?></p>
+    <p><?=$data['link']?></p>
+    <p><?=$data['nbTel']?></p>
+
     <?php
 }
 
@@ -228,6 +235,12 @@ function adminAddCards(PDO $pdo): void
         <label for="page[description]">Description :</label><textarea name="page[description]" id="page[description]"></textarea><br>
         <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]"><br>
         <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]"><br>
+        <label for="page[city]">Ville :</label><input type="text" name="page[city]" id="page[city]"><br>
+        <label for="page[country]">Pays :</label><input type="text" name="page[country]" id="page[country]"><br>
+        <label for="page[opening]">Ouverture :</label><input type="text" name="page[opening]" id="page[opening]"><br>
+        <label for="page[closing]">Fermeture :</label><input type="text" name="page[closing]" id="page[closing]"><br>
+        <label for="page[link]">Lien :</label><input type="text" name="page[link]" id="page[link]"><br>
+        <label for="page[nbTel]">Numéro téléphone :</label><input type="text" name="page[nbTel]" id="page[nbTel]"><br>
         <input type="submit" value="Ajouter">
     </form>
     <?php
@@ -271,12 +284,18 @@ function adminEditCards(PDO $pdo): void
         <input type="hidden" name="page[id]" value="<?=$data['id']?>">
         <label for="page[title]">Titre :</label><input type="text" name="page[title]" id="page[title]" value="<?=$data['title']?>"><br>
         <label for="page[slug]">Lien :</label><input type="text" name="page[slug]" id="page[slug]" value="<?=$data['slug']?>"><br>
-        <label for="page[category]">Category :</label><input type="text" name="page[category]" id="page[category]" value="<?=$data['category']?>"><br>
+        <label for="page[category]">Categorie :</label><input type="text" name="page[category]" id="page[category]" value="<?=$data['category']?>"><br>
         <label for="page[adress]">Adresse :</label><input type="text" name="page[adress]" id="page[adress]" value="<?=$data['adress']?>"><br>
         <label for="page[note]">Note :</label><input type="text" name="page[note]" id="page[note]" value="<?=$data['note']?>"><br>
         <label for="page[content]">Description :</label><textarea name="page[description]" id="page[description]"><?=$data['description']?></textarea><br>
         <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]" value="<?=$data['imgLink']?>"><br>
         <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]" value="<?=$data['imgAlt']?>"><br>
+        <label for="page[city]">Ville :</label><input type="text" name="page[city]" id="page[city]" value="<?=$data['city']?>"><br>
+        <label for="page[country]">Pays :</label><input type="text" name="page[country]" id="page[country]" value="<?=$data['country']?>"><br>
+        <label for="page[opening]">Ouverture :</label><input type="text" name="page[opening]" id="page[opening]" value="<?=$data['opening']?>"><br>
+        <label for="page[closing]">Fermeture :</label><input type="text" name="page[closing]" id="page[closing]" value="<?=$data['closing']?>"><br>
+        <label for="page[link]">Lien :</label><input type="text" name="page[link]" id="page[link]" value="<?=$data['link']?>"><br>
+        <label for="page[nbTel]">Numéro téléphone :</label><input type="text" name="page[nbTel]" id="page[nbTel]" value="<?=$data['nbTel']?>"><br>
         <input type="submit" value="Modifier">
     </form>
     <?php

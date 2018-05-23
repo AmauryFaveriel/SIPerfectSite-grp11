@@ -158,4 +158,23 @@
             margin-bottom: 100px;
         }
     }
+    
+    .twitter-feed{
+        .title{
+            font-size: 42px;
+            @include font-bold;
+        }
+
+        .subtitle{
+            font-size: 24px;
+            @include font-regular;
+            color: #93959f;
+            margin-bottom: 50px;
+        }
+        
+        .demo{
+            height: 400px;
+            background: #dedede;
+        }
+    }
 }

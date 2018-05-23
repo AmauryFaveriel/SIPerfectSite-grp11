@@ -1,6 +1,8 @@
 <?php
     require_once 'includes/connection.php';
     require 'includes/publicFunctions.php';
+    require "vendor/autoload.php";
+    use Abraham\TwitterOAuth\TwitterOAuth;
 ?>
 <!doctype html>
 <html lang="en">

@@ -81,5 +81,11 @@ function publicShowCardsSQL(PDO $pdo)
     nbTel
     FROM
     cards
-    "
+    WHERE
+    id = :id
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->bindValue(':id', $_POST['page']['id'], PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }

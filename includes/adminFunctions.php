@@ -139,6 +139,9 @@ function adminDeleteArticle(PDO $pdo): void
 <?php
 }
 
+/**
+ * @param PDO $pdo
+ */
 function adminEditArticle(PDO $pdo): void
 {
     if(isset($_POST['page'])){
@@ -161,6 +164,126 @@ function adminEditArticle(PDO $pdo): void
 <?php
 }
 
+/**
+ * @param PDO $pdo
+ */
+function adminListCards(PDO $pdo): void
+{
+    $data = adminListCardsSQL($pdo);
+    adminHeader();
+    displayHomeLink();
+    ?>
+    <h1>Liste fiches pratiques</h1>
+    <a href="../admin/index.php?action=adminAddCards">Ajouter une fiche pratique</a>
+    <ul>
+        <?php foreach ($data as $page):?>
+            <li>
+                <h2><?=$page['title']?></h2>
+                <a href="../admin/index.php?action=adminShowCards&id=<?=$page['id']?>">Détails</a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminShowCards(PDO $pdo): void
+{
+    $data = adminShowCardsSQL($pdo);
+    ?>
+    <a href="../admin/index.php?action=adminListCards">Liste fiches pratiques</a><br>
+    <a href="../admin/index.php?action=adminEditCards&id=<?=$data['id']?>">Editer</a><br>
+    <a href="../admin/index.php?action=adminDeleteCards&id=<?=$data['id']?>">Supprimer</a><br>
+    <h1><?=$data['title']?></h1>
+    <h2><?=$data['slug']?></h2>
+    <p><?=$data['category']?></p>
+    <p><?=$data['adress']?></p>
+    <img src="<?=$data['imgLink']?>" alt="<?=$data['imgAlt']?>">
+    <p><?=$data['description']?></p>
+    <p><?=$data['note']?></p>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminAddCards(PDO $pdo): void
+{
+    if(isset($_POST['page'])){
+        adminAddCardsSQL($pdo);
+        header('Location:index.php?action=adminListCards');
+        exit;
+    }
+    displayHomeLink();
+    ?>
+    <form action="" method="post" enctype="multipart/form-data">
+        <label for="page[title]">Titre :</label><input type="text" name="page[title]" id="page[title]"><br>
+        <label for="page[slug]">Lien :</label><input type="text" name="page[slug]" id="page[slug]"><br>
+        <label for="page[category]">Category :</label><input type="text" name="page[category]" id="page[category]"><br>
+        <label for="page[adress]">Adresse :</label><input type="text" name="page[adress]" id="page[adress]"><br>
+        <label for="page[note]">Note :</label><input type="text" name="page[note]" id="page[note]"><br>
+        <label for="page[description]">Description :</label><textarea name="page[description]" id="page[description]"></textarea><br>
+        <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]"><br>
+        <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]"><br>
+        <input type="submit" value="Ajouter">
+    </form>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminDeleteCards(PDO $pdo): void
+{
+    if(isset($_POST['page'])){
+        adminDeleteCardsSQL($pdo);
+        header('Location:index.php?action=adminListCards');
+        exit;
+    }
+    $data = adminShowCardsSQL($pdo);
+    ?>
+    <a href="../admin/index.php?action=adminShowCards&id=<?=$data['id']?>">Retour</a>
+    <h1>Voulez-vous supprimer <?=$data['title']?> ?</h1>
+    <form action="" method="post">
+        <input type="hidden" name="page[id]" value="<?=$data['id']?>">
+        <input type="submit" value="supprimer">
+    </form>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminEditCards(PDO $pdo): void
+{
+    if(isset($_POST['page'])){
+        adminEditCardsSQL($pdo);
+        header('Location:index.php?action=adminListCards');
+        exit;
+    }
+    $data = adminShowCardsSQL($pdo);
+    ?>
+    <a href="../admin/index.php?action=adminShowCards&id=<?=$data['id']?>">Retour</a>
+    <form action="" method="post">
+        <input type="hidden" name="page[id]" value="<?=$data['id']?>">
+        <label for="page[title]">Titre :</label><input type="text" name="page[title]" id="page[title]" value="<?=$data['title']?>"><br>
+        <label for="page[slug]">Lien :</label><input type="text" name="page[slug]" id="page[slug]" value="<?=$data['slug']?>"><br>
+        <label for="page[category]">Category :</label><input type="text" name="page[category]" id="page[category]" value="<?=$data['category']?>"><br>
+        <label for="page[adress]">Adresse :</label><input type="text" name="page[adress]" id="page[adress]" value="<?=$data['adress']?>"><br>
+        <label for="page[note]">Note :</label><input type="text" name="page[note]" id="page[note]" value="<?=$data['note']?>"><br>
+        <label for="page[content]">Description :</label><textarea name="page[description]" id="page[description]"><?=$data['description']?></textarea><br>
+        <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]" value="<?=$data['imgLink']?>"><br>
+        <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]" value="<?=$data['imgAlt']?>"><br>
+        <input type="submit" value="Modifier">
+    </form>
+    <?php
+}
+
+/**
+ *
+ */
 function displayHomeLink()
 {
 ?>

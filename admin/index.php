@@ -30,6 +30,21 @@ switch($action) {
     case 'adminEditArticle':
         adminEditArticle($pdo);
         break;
+    case 'adminListCards':
+        adminListCards($pdo);
+        break;
+    case 'adminShowCards':
+        adminShowCards($pdo);
+        break;
+    case 'adminAddCards':
+        adminAddCards($pdo);
+        break;
+    case 'adminDeleteCards':
+        adminDeleteCards($pdo);
+        break;
+    case 'adminEditCards':
+        adminEditCards($pdo);
+        break;
     case 'list':
     default:
         adminList();

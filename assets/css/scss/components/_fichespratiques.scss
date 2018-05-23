@@ -1,0 +1,195 @@
+.fiches-pratiques{
+    .header{
+        height: 700px;
+        background: #ddd url(../img/happypeoples.png);
+        background-size: cover;
+        background-position: center;
+
+        .title{
+            @include font-bold;
+            color: #fff;
+            font-size: 56px;
+            padding-top: 260px;
+            padding-bottom: 30px;
+            line-height: 1.4;
+            text-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+            margin: 0;
+            text-align: center;
+        }
+        
+        .input-group{
+            margin-top: 30px;
+            box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.05);
+            
+            input{
+                height: 80px;
+                @include font-bold;
+                background: rgba(255,255,255,0.5);
+                border: solid 2px #fff;
+                color: #fff;
+                font-size: 20px;
+                padding-left: 20px;
+            }
+            
+            input::placeholder{
+                color: rgba(255,255,255,0.8);
+            }
+            
+            .btn-light{
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+    }
+    
+    .filters{
+        .title{
+            text-align: center;
+            @include font-bold;
+            padding-top: 100px;
+            padding-bottom: 50px;
+            font-size: 38px;
+        }
+        
+        .categories{
+            .item{
+                border-radius: 10px;
+                padding: 30px;
+                background: #fff;
+                border: solid 1px #dedede;
+                box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.15);
+                justify-content: space-between;
+                margin-bottom: 40px;
+                text-align: center;
+                @include responsive-above(sm){
+                    max-width: 22%;
+                }
+                @include responsive-between(sm, lg){
+                    max-width: 30%;
+                }
+                @include responsive-between(xs, sm){
+                    max-width: 46%;
+                }
+                
+                i{
+                    font-size: 50px;
+                    color: #f15025;
+                }
+                
+                .title{
+                    font-size: 24px;
+                    @include font-bold;
+                    padding-top: 20px;
+                    padding-bottom: 10px;
+                }
+                
+                .subtitle{
+                    font-size: 18px;
+                    @include font-regular;
+                    color: #93959f;
+                }
+            }
+            
+            .box-search{
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 100px;
+            }
+        }
+    }
+    
+    .results{
+        
+        .title-results{
+            @include font-bold;
+            padding-bottom: 25px;
+            margin-bottom: 50px;
+            border-bottom: solid 1px #dedede;
+        }
+        
+        
+        .item{
+            border-radius: 5px;
+            padding: 15px;
+            background: #fff;
+            border: solid 1px #dedede;
+            box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+            @include responsive-above(md){
+                max-width: 32%;
+            }
+            @include responsive-between(sm,md){
+                max-width: 45%;
+            }
+            
+            .head{
+                display: flex;
+                justify-content: space-between;
+                border-bottom: solid 1px #dedede;
+                padding-bottom: 15px;
+                
+                .left{
+                    .title{
+                        font-size: 24px;
+                        @include font-bold;
+                    }
+                    
+                    .note{
+                        margin-bottom: 8px;
+                        
+                        i{
+                            font-size: 14px;
+                            color: #F8D64E;
+                        }
+                    }
+                    
+                    .icon{
+                        font-size: 32px;
+                        color: #f15025;
+                        margin-bottom: 10px;
+                    }
+                    
+                    .date-open{
+                        margin-right: 10px;
+                    }
+                }
+                .right{
+                    img{
+                        width: 150px;
+                        height: auto;
+                        border-radius: 3px;
+                    }
+                }
+            }
+            
+            .description{
+                padding: 20px 0;
+                border-bottom: solid 1px #dedede;
+            }
+            
+            .foot{
+                display: flex;
+                justify-content: space-between;
+                
+                .left{
+                    .phone{
+                        font-size: 16px;
+                    }
+                    
+                    .adress{
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+                }
+                
+                .right{
+                    align-self: center;
+                    
+                    .btn{
+                        padding: 12px 16px;
+                    }
+                }
+            }
+        }
+    }
+}

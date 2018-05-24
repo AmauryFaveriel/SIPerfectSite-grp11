@@ -53,46 +53,46 @@
                        </form>
                    </h2>
                    <div class="row categories justify-content-between">
-                       <div class="col-lg-3 col-md-4 col-sm-6 item">
+                       <button class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-bed"></i>
                            <h3 class="title">Hébergement</h3>
                            <h5 class="subtitle">Hôtels et Maisons d'hôtes</h5>
-                       </div>
-                       <div class="col-lg-3 col-md-4 col-sm-6 item">
+                       </button>
+                       <button class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-utensils"></i>
                            <h3 class="title">Gastronomie</h3>
                            <h5 class="subtitle">Restaurants, cafés, bars</h5>
-                       </div>
-                       <div class="col-lg-3 col-md-4 col-sm-6 item">
+                       </button>
+                       <button class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-gem"></i>
                            <h3 class="title">The Place to Be</h3>
                            <h5 class="subtitle">Nos meilleures adresses</h5>
-                       </div>
-                       <div class="col-lg-3 col-md-4 col-sm-6 item">
+                       </button>
+                       <button class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-shopping-bag"></i>
                            <h3 class="title">Shopping</h3>
                            <h5 class="subtitle">Boutiques &amp; Concept Stores</h5>
-                       </div>
-                       <div class="col-lg-3 col-md-4 col-sm-6 item">
+                       </button>
+                       <button class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-building"></i>
                            <h3 class="title">Culturel</h3>
                            <h5 class="subtitle">Musées, Théatres &amp; Concerts</h5>
-                       </div>
-                       <div class="col-lg-3 col-md-4 col-sm-6 item">
+                       </button>
+                       <button class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-leaf"></i>
                            <h3 class="title">Bien-Être</h3>
                            <h5 class="subtitle">Spas, Thalassos &amp; Soins du Corps</h5>
-                       </div>
-                       <div class="col-lg-3 col-md-4 col-sm-6 item">
+                       </button>
+                       <button class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-sun"></i>
                            <h3 class="title">Sport &amp; Aventure</h3>
                            <h5 class="subtitle">Ski, Surf &amp; Golf</h5>
-                       </div>
-                       <div class="col-lg-3 col-md-4 col-sm-6 item">
+                       </button>
+                       <button class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-plane"></i>
                            <h3 class="title">Compagnies Aériennes</h3>
                            <h5 class="subtitle">Pour un itinéraire spécifique</h5>
-                       </div> 
+                       </button> 
                        <div class="col-md-12 box-search">
                            <a href="#" class="btn btn-primary btn-lg">Rechercher</a>
                        </div>

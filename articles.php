@@ -28,15 +28,13 @@
             <div class="filters">
                 <div class="container">
                     <div class="row justify-content-between">
-                        <form action="" method="post">
+                        <form action="" method="post" class="form270">
                             <input type="hidden" name="select[category]" value="destination">
-                            <button class="col-sm-6 col-md-12 item destination">
+                            <button class="col-sm-12 col-md-6 item destination">
                                 <h3 class="title">Destinations</h3>
                             </button>
-                        </form>
-                        <form action="" method="post">
                             <input type="hidden" name="select[category]" value="newsAir">
-                            <button class="col-sm-6 col-md-12 item newsair">
+                            <button class="col-sm-12 col-md-6 item newsair">
                                 <h3 class="title">NEWS AIR</h3>
                             </button>
                         </form>

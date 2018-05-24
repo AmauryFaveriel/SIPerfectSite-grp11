@@ -43,10 +43,15 @@ function publicFooterSQL(PDO $pdo): array
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
 
+/**
+ * @param PDO $pdo
+ * @return array
+ */
 function publicListCardsSQL(PDO $pdo)
 {
     $requete="
     SELECT
+    id,
     title,
     city,
     country,
@@ -61,6 +66,60 @@ function publicListCardsSQL(PDO $pdo)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function publicSelectedListCardsSQL(PDO $pdo, string $city, string $category)
+{
+    $requete="
+    SELECT
+    id,
+    title,
+    city,
+    country,
+    imgLink,
+    imgAlt,
+    link
+    FROM
+    `cards`
+    WHERE
+    city = :city
+    AND 
+    category = :category
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->bindValue(':city', $city, PDO::PARAM_STR);
+    $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function publicTopListCardsSQL(PDO $pdo, string $category)
+{
+    $requete="
+    SELECT
+    id,
+    title,
+    city,
+    country,
+    imgLink,
+    imgAlt,
+    link
+    FROM
+    `cards`
+    WHERE
+    category = :category
+    ORDER BY 
+    note
+    DESC
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
+ * @param PDO $pdo
+ * @return mixed
+ */
 function publicShowCardsSQL(PDO $pdo)
 {
     $requete="

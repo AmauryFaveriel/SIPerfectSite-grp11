@@ -12,7 +12,9 @@ require_once '../includes/adminFunctions.php';
 define("PAGE_DEFAULT", "list");
 
 $action = $_GET['action'] ?? $_POST['action'] ?? PAGE_DEFAULT;
-
+?>
+    <a href="../index.php">Site public</a><br>
+<?php
 switch($action) {
 
     case 'adminListArticle':

@@ -215,6 +215,57 @@ function publicTopListCards(PDO $pdo, string $category)
         endforeach;
 }
 
+function publicListCards(PDO $pdo)
+{
+    $data = publicListCardsSQL($pdo);
+    foreach ($data as $item):
+    ?>
+    <div class="col-lg-4 col-md-6 col-md-sm-12 item">
+        <div class="head">
+            <div class="left">
+                <h3 class="title"><?=$item['title']?></h3>
+                <div class="note">
+                    <?php
+                        for ($i=0; $i<$item['note']; $i++){
+                            echo '<i class="fas fa-star"></i>';
+                        }
+                        for ($i=0; $i<5-$item['note']; $i++){
+                            echo'<i class="far fa-star"></i>';
+                        }
+                    ?>
+                </div>
+                <span class="date-open">
+                    <i class="far fa-clock"></i> <?=$item['opening']?>
+                </span>
+                <span class="date-close">
+                    <i class="fas fa-clock"></i> <?=$item['closing']?>
+                </span>
+            </div>
+            <div class="right">
+                <img src="<?=$item['imgLink']?>" alt="<?=$item['imgAlt']?>">
+            </div>
+        </div>
+        <p class="description"><?=nl2br($item['description'])?></p>
+        <div class="foot">
+            <div class="left">
+                <a href="tel:33142887575" class="phone">
+                    <i class="fas fa-phone-square"></i> <?=$item['nbTel']?>
+                </a>
+                <h5 class="adress">
+                    <?=$item['adress']?><br>
+                    <?=$item['city']?> - <?=$item['country']?>
+                </h5>
+            </div>
+            <div class="right">
+                <a href="#" class="btn btn-primary">Réserver</a>
+            </div>
+        </div>
+    </div>
+        <?php
+    endforeach;
+
+}
+
 function test(PDO $pdo)
 {
     if(isset($_POST['select'])){

@@ -172,7 +172,7 @@ $data = publicFooterSQL($pdo)
 
 function publicListArticle(PDO $pdo, int $nb)
 {
-    if(isset($_POST['select'])){
+    if(isset($_GET['category'])){
         $data = publicSelectedListArticleSQL($pdo, $nb);
     } else {
         $data = publicListArticleSQL($pdo, $nb);

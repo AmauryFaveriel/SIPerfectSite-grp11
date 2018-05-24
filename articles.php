@@ -30,13 +30,13 @@
                     <div class="row justify-content-between">
                         <form action="" method="post" class="form270">
                             <input type="hidden" name="select[category]" value="destination">
-                            <button class="col-sm-12 col-md-6 item destination">
+                            <a href="articles.php?category=destination#results" class="col-sm-12 col-md-6 item destination">
                                 <h3 class="title">Destinations</h3>
-                            </button>
+                            </a>
                             <input type="hidden" name="select[category]" value="newsAir">
-                            <button class="col-sm-12 col-md-6 item newsair">
+                            <a href="articles.php?category=newsAir#results" class="col-sm-12 col-md-6 item newsair">
                                 <h3 class="title">NEWS AIR</h3>
-                            </button>
+                            </a>
                         </form>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                 </div>
             </div>
             
-            <div class="articles-all">
+            <div class="articles-all" id="results">
                 <div class="container">
                     <h3 class="title">Tous les articles</h3>
                     <div class="row">

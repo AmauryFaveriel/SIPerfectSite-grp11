@@ -33,73 +33,54 @@
                 </div>
             </div>
             
-            <div class="filters">
+            <div class="filters" style="margin-top: 100px">
                <div class="container">
-                   <h2 class="title">
-                       <form action="" method="post">
-                           Je veux voir les bonnes adresses de 
-
-                           <select id="select" name="select[city]">
-                               <option value="Paris" selected>Paris</option> 
-                               <option value="Tokyo">Tokyo</option>
-                               <option value="Rio">Rio</option>
-                               <option value="Moscou">Moscou</option>
-                               <option value="Berlin">Berlin</option>
-                               <option value="Nairobi">Nairobi</option>
-                               <option value="Denver">Denver</option>
-                               <option value="Helsinki">Helsinki</option>
-                               <option value="Oslo">Oslo</option>
-                           </select>
-
-                   </h2>
                    <div class="row categories justify-content-between">
-                       <a href="fichespratiques.php?category=hebergement" class="col-lg-3 col-md-4 col-sm-6 item">
+                       <a href="fichespratiques.php?category=hebergement#results" class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-bed"></i>
                            <h3 class="title">Hébergement</h3>
                            <h5 class="subtitle">Hôtels et Maisons d'hôtes</h5>
                        </a>
-                       <a href="fichespratiques.php?category=gastronomie" class="col-lg-3 col-md-4 col-sm-6 item">
+                       <a href="fichespratiques.php?category=gastronomie#results" class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-utensils"></i>
                            <h3 class="title">Gastronomie</h3>
                            <h5 class="subtitle">Restaurants, cafés, bars</h5>
                        </a>
-                       <a href="fichespratiques.php?category=place" class="col-lg-3 col-md-4 col-sm-6 item">
+                       <a href="fichespratiques.php?category=place#results" class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-gem"></i>
                            <h3 class="title">The Place to Be</h3>
                            <h5 class="subtitle">Nos meilleures adresses</h5>
                        </a>
-                       <a href="fichespratiques.php?category=shopping" class="col-lg-3 col-md-4 col-sm-6 item">
+                       <a href="fichespratiques.php?category=shopping#results" class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-shopping-bag"></i>
                            <h3 class="title">Shopping</h3>
                            <h5 class="subtitle">Boutiques &amp; Concept Stores</h5>
                        </a>
-                       <a href="fichespratiques.php?category=culturel" class="col-lg-3 col-md-4 col-sm-6 item">
+                       <a href="fichespratiques.php?category=culturel#results" class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-building"></i>
                            <h3 class="title">Culturel</h3>
                            <h5 class="subtitle">Musées, Théatres &amp; Concerts</h5>
                        </a>
-                       <a href="fichespratiques.php?category=bienEtre" class="col-lg-3 col-md-4 col-sm-6 item">
+                       <a href="fichespratiques.php?category=bienEtre#results" class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-leaf"></i>
                            <h3 class="title">Bien-Être</h3>
                            <h5 class="subtitle">Spas, Thalassos &amp; Soins du Corps</h5>
                        </a>
-                       <a href="fichespratiques.php?category=sport" class="col-lg-3 col-md-4 col-sm-6 item">
+                       <a href="fichespratiques.php?category=sport#results" class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-sun"></i>
                            <h3 class="title">Sport &amp; Aventure</h3>
                            <h5 class="subtitle">Ski, Surf &amp; Golf</h5>
                        </a>
-                       <a href="fichespratiques.php?category=fly" class="col-lg-3 col-md-4 col-sm-6 item">
+                       <a href="fichespratiques.php?category=fly#results" class="col-lg-3 col-md-4 col-sm-6 item">
                            <i class="fas fa-plane"></i>
                            <h3 class="title">Compagnies Aériennes</h3>
                            <h5 class="subtitle">Pour un itinéraire spécifique</h5>
                        </a>
-                       
-                       </form>
                    </div>
                </div>
             </div>
 
-            <div class="results">
+            <div class="results" id="results">
                 <div class="container">
                        <h1 class="title-results">
                            Résultats trouvés

@@ -65,7 +65,7 @@ function publicSelectedListArticleSQL(PDO $pdo, int $nb)
     0,$nb
     ;";
     $stmt=$pdo->prepare($requete);
-    $stmt->bindValue(':category', htmlspecialchars($_POST['select']['category']));
+    $stmt->bindValue(':category', htmlspecialchars($_GET['category']));
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }

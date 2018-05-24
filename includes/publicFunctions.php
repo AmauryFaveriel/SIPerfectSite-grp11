@@ -206,7 +206,7 @@ function publicTopListCards(PDO $pdo, string $category)
                 <div class="right-2">
                     <h3><?=$item['title']?></h3>
                     <h5><?=$item['city']?>, <?=$item['country']?></h5>
-                    <a href="#"><?=$item['link']?> <i class="fas fa-external-link-alt"></i></a>
+                    <a href="http://<?=$item['link']?>"><?=$item['link']?> <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
             <div class="right">

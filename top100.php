@@ -7,7 +7,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Top 100 des meilleurs hôtels - Une année de voyages</title>
+        <title>Top 100 - Une année de voyages</title>
         <link rel="stylesheet" href="assets/css/styles.css">
     </head>
 
@@ -20,7 +20,21 @@
         <section class="top100">
             <div class="header">
                 <div class="container">
-                    <h1 class="title">Le Top 100 des meilleurs Hôtels
+                    <h1 class="title">Le Top 100
+                        <?php
+                            switch ($_GET['category']){
+                                case 'hebergement':
+                                    echo 'des meilleurs hôtels';
+                                    break;
+                                case 'gastronomie':
+                                    echo 'des meilleurs restaurants';
+                                    break;
+                                case 'bienEtre':
+                                    echo 'des meilleurs spas et thalassos';
+                                    break;
+                            }
+
+                        ?>
                     <br>à travers le monde</h1>
                     <div class="decorative-bar"></div>
                 </div>
@@ -29,7 +43,7 @@
             <div class="ranking">
                 <div class="container">
                     <?php
-                        publicTopListCards($pdo, 'hebergement');
+                        publicTopListCards($pdo, $_GET['category']);
                     ?>
                 </div>
             </div>

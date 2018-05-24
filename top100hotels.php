@@ -29,7 +29,7 @@
             <div class="ranking">
                 <div class="container">
                     <?php
-                        publicTopListCards($pdo, 'test');
+                        publicTopListCards($pdo, 'hebergement');
                     ?>
                 </div>
             </div>

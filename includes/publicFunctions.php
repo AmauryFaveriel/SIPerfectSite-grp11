@@ -43,6 +43,9 @@ function publicHeader()
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="quisommesnous.php">Qui sommes-nous ?</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" href="contact.php">Nous contacter</a>
                 </li>
             </ul>

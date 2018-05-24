@@ -13,3 +13,8 @@ if(document.querySelector('.ranking') !== null){
         event.preventDefault();
     })
 }
+
+function stopthisshit(event){    
+    event.preventDefault();
+    return false;
+}

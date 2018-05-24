@@ -180,7 +180,7 @@ function publicListArticle(PDO $pdo, int $nb)
     foreach ($data as $item):?>
         <div class="col-md-4 news-u">
             <div class="miniature">
-                <img src="assets/img/indonesia.jpg" alt="miniature">
+                <img src="<?=$item['imgLink']?>" alt="<?=$item['imgAlt']?>">
             </div>
             <h3><a href="article.php?id=<?=$item['id']?>"><?=$item['title']?></a></h3>
             <h5>Temps de lecture : 6 minutes</h5>
@@ -207,7 +207,7 @@ function publicTopListCards(PDO $pdo, string $category)
                 </div>
             </div>
             <div class="right">
-                <img src="assets/img/hotels.jpg" alt="miniature">
+                <img src="<?=$item['imgLink']?>" alt="<?=$item['imgAlt']?>">
             </div>
         </div>
         <?php
@@ -268,32 +268,4 @@ function publicListCards(PDO $pdo)
         <?php
     endforeach;
 
-}
-
-function test(PDO $pdo)
-{
-    if(isset($_POST['select'])){
-?>
-        <form action="" method="post">
-            <input type="text" name="select[city]" value="<?=$_POST['select']['city']?>"><br>
-            <input type="text" name="select[category]" value="<?=$_POST['select']['category']?>"><br>
-            <input type="submit" value="Rechercher">
-        </form>
-<?php
-        $data = publicTopListCardsSQL($pdo, $_POST['select']['category']);
-        if (empty($data)){
-            echo 'ERREUR PAS DE FICHE';
-        }
-        foreach ($data as $datum): ?>
-            <p><?=$datum['title']?></p>
-        <?php endforeach;
-    } else {
-?>
-        <form action="" method="post">
-        <input type="text" name="select[city]"><br>
-        <input type="text" name="select[category]"><br>
-        <input type="submit" value="Rechercher">
-    </form>
-<?php
-    }
 }

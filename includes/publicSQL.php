@@ -43,6 +43,51 @@ function publicFooterSQL(PDO $pdo): array
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
 
+function publicListArticleSQL(PDO $pdo, int $nb)
+{
+    $requete="
+    SELECT
+    id,
+    title,
+    imgLink,
+    imgAlt
+    FROM
+    `article`
+    ORDER BY
+    id
+    DESC
+    LIMIT
+    0,$nb
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function publicSelectedListArticleSQL(PDO $pdo, int $nb)
+{
+    $requete="
+    SELECT
+    id,
+    title,
+    imgLink,
+    imgAlt
+    FROM
+    `article`
+    WHERE
+    category = :category
+    ORDER BY
+    id
+    DESC
+    LIMIT
+    0,$nb
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->bindValue(':category', htmlspecialchars($_POST['select']['category']));
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 /**
  * @param PDO $pdo
  * @return array

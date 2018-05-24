@@ -12,16 +12,46 @@ function publicHeader()
 {
 ?>
 
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-    </head>
-    <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img class="logo" src="assets/img/logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="articles.php">Nos articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="fichespratiques.php">Nos fiches pratiques</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="boiteaimages.php">Boîte à images</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        TOP 100
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="top100hotels.php">Meilleurs Hôtels</a>
+                        <a class="dropdown-item" href="#">Meilleurs Restaurants</a>
+                        <a class="dropdown-item" href="#">Meilleurs SPAs & Thalassos</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="contact.php">Nous contacter</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher..." aria-label="Rechercher...">
+                <button class="btn btn-outline-dark mr-sm-2 btn-search" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
 
 <?php
 }
@@ -30,16 +60,132 @@ function publicFooter($pdo)
 {
 $data = publicFooterSQL($pdo)
 ?>
-<footer>
-    <?php foreach ($data as $page): ?>
-        <a href="<?=$page['link']?>">
-            <img src="../includes/img/<?=$page['imgLink']?>" alt="<?=$page['imgAlt']?>">
-        </a>
-    <?php endforeach; ?>
-</footer>
-</body>
-</html>
+    <div class="partners">
+        <div class="container">
+            <div class="display-partners">
+                <a href="#"><img src="assets/img/vinci-airports.png" alt="Vinci Airports"></a>
+                <a href="#"><img src="assets/img/paris-airport.png" alt="Paris Aeroport"></a>
+                <a href="#"><img src="assets/img/iata.png" alt="IATA"></a>
+                <a href="#"><img src="assets/img/tripadvisor.png" alt="TripAdvisor"></a>
+                <a href="#"><img src="assets/img/gopro.png" alt="GoPro"></a>
+                <a href="#"><img src="assets/img/Canon_logo.png" alt="Canon"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="pre-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <ul class="menu">
+                        <li>
+                            32 rue des Peupliers,<br> 92100 Boulogne <br> France
+                        </li>
+                    </ul>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">A propos</a>
+                        </li>
+                        <li>
+                            <a href="#">C.G.V</a>
+                        </li>
+                        <li>
+                            <a href="#">Mentions légales</a>
+                        </li>
+                        <li>
+                            <a href="#">Publicité</a>
+                        </li>
+                    </ul>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">Devenir panéliste</a>
+                        </li>
+                        <li>
+                            <a href="#">Abonnements</a>
+                        </li>
+                        <li>
+                            <a href="#">Archives</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a href="#">Plan de Site</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <div class="newsletter">
+                        <h3 class="title">
+                            Inscrivez-vous à la newsletter quotidienne de UADV afin de recevoir des offres personnalisées !
+                            <br>
+                            <a href="#">Consulter notre politique de confidentialité.</a>
+                            <div class="input-group mt-3">
+                                <input type="email" class="form-control" placeholder="Votre adresse mail..." aria-label="Votre adresse mail..." aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit" style="padding: 10px 14px;">Envoyer</button>
+                                </div>
+                            </div>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="flex">
+                <div class="left">
+                    <img class="logo" src="assets/img/logo-white.png" alt="logo Une Année De Voyages">
+                    <span>2018 - Tous droits réservés</span>
+                </div>
+                <div class="right">
+                    <ul class="menu">
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <?php
+}
+
+function publicListArticle(PDO $pdo, int $nb)
+{
+    if(isset($_POST['select'])){
+        $data = publicSelectedListArticleSQL($pdo, $nb);
+    } else {
+        $data = publicListArticleSQL($pdo, $nb);
+    }
+    foreach ($data as $item):?>
+        <div class="col-md-4 news-u">
+            <div class="miniature">
+                <img src="assets/img/indonesia.jpg" alt="miniature">
+            </div>
+            <h3><a href="article.php?id=<?=$item['id']?>"><?=$item['title']?></a></h3>
+            <h5>Temps de lecture : 6 minutes</h5>
+        </div>
+    <?php endforeach;
 }
 
 function test(PDO $pdo)

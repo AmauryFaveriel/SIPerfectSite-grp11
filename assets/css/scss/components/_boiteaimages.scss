@@ -1,0 +1,124 @@
+.boiteaimages{
+    .header{
+        height: 700px;
+        background: #ddd url(../img/indonesia.jpg);
+        background-size: cover;
+        background-position: center;
+
+        .title{
+            @include font-bold;
+            color: #fff;
+            font-size: 56px;
+            padding-top: 260px;
+            padding-bottom: 30px;
+            line-height: 1.4;
+            text-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+            margin: 0;
+        }
+    }
+    
+    .filters{
+        padding: 100px 0;
+        border-bottom: solid 1px #dedede;
+        
+        .menu{
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            @include responsive-below(sm){
+                display: block;
+            }
+            
+            li{
+                display: inline-block;
+                font-size: 28px;
+                @include font-bold;
+                border-bottom: solid 2px transparent;
+                cursor: pointer;
+                transition: 0.2s;
+                @include responsive-below(sm){
+                    display: block;
+                    text-align: center;
+                    margin: 15px 0;
+                }
+            }
+            
+            li:hover{
+                border-bottom: solid 2px #f15025;
+            }
+            
+            .active{
+                border-bottom: solid 2px #f15025;
+            }
+        }
+    }
+    
+    .carousel{
+        padding-top: 100px;
+        
+        .photo{
+            height: 580px;
+            width: 90%;
+            background: #dedede;
+            
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        .description{
+            width: 300px;
+            height: auto;
+            padding: 25px;
+            background: #fff;
+            border: solid 1px #dedede;
+            box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.15);
+            position: absolute;
+            top: 30px;
+            right: 0px;
+            
+            .title{
+                @include font-bold;
+                font-size: 32px;
+            }
+            
+            p{
+                @include font-regular;
+                padding: 10px;
+                line-height: 1.5;
+            }
+            
+        }
+    }
+    
+    .gallery{
+        padding-top: 100px;
+        .item{
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+            background: #dedede;
+            cursor: pointer;
+            margin-bottom: 40px;
+            
+            img{
+                width: 100%;
+                height: 100%;
+                transition: 0.2s;
+            }
+        }
+        
+        .item:hover{
+            img{
+                transform: scale(1.15);
+            }
+        }
+        
+        .btn-box{
+            text-align: center;
+            padding: 50px 0;
+        }
+    }
+}

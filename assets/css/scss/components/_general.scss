@@ -1,0 +1,62 @@
+.help-banner{
+    margin: 50px 0;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    background: #00B951;
+    
+    .help-inside{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .left{
+        display: flex;
+        justify-content: flex-start;
+        
+        img{
+            margin-right: 40px;
+            max-height: 50px;
+        }
+        
+        .title{
+            font-size: 32px;
+            color: #fff;
+        }
+
+        .subtitle{
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+    }
+    
+    .right{
+        text-align: right;
+        padding-top: 20px;
+    }
+
+}
+
+.calameo{
+    width: 100%;
+    height: 500px;
+}
+
+.hide{
+    display: none !important;
+}
+
+.fade-custom{
+    animation: fadeIn 1s;
+    opacity: 1;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

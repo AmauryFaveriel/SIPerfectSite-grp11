@@ -16,6 +16,7 @@
 <body>
     <a href="admin/index.php">Panneau administrateur</a>
 <?php
+    test($pdo);
     publicFooter($pdo);
 ?>
 </body>

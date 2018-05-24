@@ -91,7 +91,7 @@ function adminShowArticle(PDO $pdo): void
     <h2><?=$data['slug']?></h2>
     <p><?=$data['category']?></p>
     <img src="<?=$data['imgLink']?>" alt="<?=$data['imgAlt']?>">
-    <p><?=$data['content']?></p>
+    <p><?=nl2br($data['content'])?></p>
 <?php
 }
 
@@ -202,7 +202,7 @@ function adminShowCards(PDO $pdo): void
     <p><?=$data['category']?></p>
     <p><?=$data['adress']?></p>
     <img src="<?=$data['imgLink']?>" alt="<?=$data['imgAlt']?>">
-    <p><?=$data['description']?></p>
+    <p><?=nl2br($data['description'])?></p>
     <p><?=$data['note']?></p>
     <p><?=$data['city']?></p>
     <p><?=$data['country']?></p>
@@ -231,7 +231,7 @@ function adminAddCards(PDO $pdo): void
         <label for="page[slug]">Lien :</label><input type="text" name="page[slug]" id="page[slug]"><br>
         <label for="page[category]">Category :</label><input type="text" name="page[category]" id="page[category]"><br>
         <label for="page[adress]">Adresse :</label><input type="text" name="page[adress]" id="page[adress]"><br>
-        <label for="page[note]">Note :</label><input type="text" name="page[note]" id="page[note]"><br>
+        <label for="page[note]">Note :</label><input type="number" name="page[note]" id="page[note]"><br>
         <label for="page[description]">Description :</label><textarea name="page[description]" id="page[description]"></textarea><br>
         <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]"><br>
         <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]"><br>
@@ -240,7 +240,7 @@ function adminAddCards(PDO $pdo): void
         <label for="page[opening]">Ouverture :</label><input type="text" name="page[opening]" id="page[opening]"><br>
         <label for="page[closing]">Fermeture :</label><input type="text" name="page[closing]" id="page[closing]"><br>
         <label for="page[link]">Lien :</label><input type="text" name="page[link]" id="page[link]"><br>
-        <label for="page[nbTel]">Numéro téléphone :</label><input type="text" name="page[nbTel]" id="page[nbTel]"><br>
+        <label for="page[nbTel]">Numéro téléphone :</label><input type="tel" name="page[nbTel]" id="page[nbTel]"><br>
         <input type="submit" value="Ajouter">
     </form>
     <?php

@@ -1,0 +1,21 @@
+// Global
+@import 'global/bootstrap';
+@import 'global/normalize';
+@import 'global/fonts';
+@import 'global/variables';
+@import 'global/mixins';
+@import 'global/classes';
+@import 'global/fontawesome';
+
+// Components
+@import 'components/general';
+@import 'components/navbar';
+@import 'components/homepage';
+@import 'components/contact';
+@import 'components/top100';
+@import 'components/article';
+@import 'components/articles';
+@import 'components/fichespratiques';
+@import 'components/boiteaimages';
+@import 'components/partners';
+@import 'components/footer';

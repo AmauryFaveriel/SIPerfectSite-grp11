@@ -41,3 +41,32 @@ $data = publicFooterSQL($pdo)
 </html>
 <?php
 }
+
+function test(PDO $pdo)
+{?>
+<?php
+    if(isset($_POST['select'])){
+?>
+        <form action="" method="post">
+            <input type="text" name="select[city]" value="<?=$_POST['select']['city']?>"><br>
+            <input type="text" name="select[category]" value="<?=$_POST['select']['category']?>"><br>
+            <input type="submit" value="Rechercher">
+        </form>
+<?php
+        $data = publicTopListCardsSQL($pdo, $_POST['select']['category']);
+        if (empty($data)){
+            echo 'ERREUR PAS DE FICHE';
+        }
+        foreach ($data as $datum): ?>
+            <p><?=$datum['title']?></p>
+        <?php endforeach;
+    } else {
+?>
+        <form action="" method="post">
+        <input type="text" name="select[city]"><br>
+        <input type="text" name="select[category]"><br>
+        <input type="submit" value="Rechercher">
+    </form>
+<?php
+    }
+}

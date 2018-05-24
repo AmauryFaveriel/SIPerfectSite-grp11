@@ -1,0 +1,85 @@
+.pre-footer{
+    background: #282b40;
+    color: #fff;
+    padding: 80px 0;
+    @include font-bold;
+    
+    
+ 
+        
+        .menu{
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+            vertical-align: text-top;
+            margin-right: 50px;
+
+            a{
+                font-family: sans-serif;
+                color: #fff;
+            }
+        }        
+    
+    
+  
+        
+        .newsletter{
+            float: right;
+            display: inline-block;
+
+            .title{
+                font-size: 16px;
+                
+                a{
+                    font-family: sans-serif;
+                }
+            }
+            
+            input{
+            }
+        }
+
+    
+    
+}
+
+.footer{
+    background: darken(#282b40, 3%);
+    color: #fff;
+    padding: 20px 0;
+    
+    .flex{
+        display: flex;
+        justify-content: space-between;
+        
+        .left{
+            .logo{
+                height: 40px;
+                margin-right: 15px;
+            }
+        }
+        
+        .right{
+            align-self: center;
+            
+            .menu{
+                list-style: none;
+                padding: 0;
+                display: inline-block;
+                vertical-align: text-top;
+                margin: 0;
+                
+                li{
+                    display: inline-block;
+                    margin: 0px 6px;
+                    font-size: 22px;
+                }
+
+                a{
+                    font-family: sans-serif;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

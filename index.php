@@ -160,6 +160,7 @@
                         return strtotime($a->created_at) - strtotime($b->created_at);
                     }
                     usort($tweets3, "sortFunction");
+                    $tweets3 = array_reverse($tweets3);
                      foreach($tweets3 as $tweet): ?>
                         <img src="<?= $tweet->user->profile_image_url?>" alt="">
                         <small>

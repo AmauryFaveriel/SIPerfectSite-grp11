@@ -1,0 +1,88 @@
+.quisommesnous{
+    .header{
+        height: 700px;
+        overflow: hidden;
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .head-news{
+        padding: 60px 0;
+        padding-bottom: 40px;
+        margin-bottom: 100px;
+        border-bottom: solid 2px #dedede;
+
+        .title{
+            font-size: 42px;
+            @include font-bold;
+        }
+
+        .subtitle{
+            font-size: 24px;
+            @include font-regular;
+            color: #93959f;
+            padding-bottom: 30px;
+        }
+
+        h5{
+            font-size: 16px;
+            @include font-regular;
+        }
+    }
+
+    .article-text{
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.5;
+
+        p{
+            margin: 50px 0;
+        }
+        
+        h3{
+            @include font-bold;
+            margin: 50px 0;
+        }
+
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    
+    .team{
+        .title{
+            padding-top: 60px;
+            padding-bottom: 100px;
+            text-align: center;
+            
+            h3{
+                @include font-bold;
+                font-size: 42px;
+            }
+        }
+        
+        .item{
+            text-align: center;
+            
+            img{
+                width: 70%;
+                height: 170px;
+                border-radius: 3px;
+                margin-bottom: 15px;
+            }
+            
+            h3{
+                @include font-bold;
+                font-size: 20px;
+            }
+            
+            h5{
+                font-size: 16px;
+            }
+        }
+    }
+}

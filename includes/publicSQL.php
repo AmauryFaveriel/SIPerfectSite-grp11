@@ -117,26 +117,27 @@ function publicListCardsSQL(PDO $pdo)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function publicSelectedListCardsSQL(PDO $pdo, string $city, string $category)
+function publicSelectedListCardsSQL(PDO $pdo, string $category)
 {
     $requete="
     SELECT
-    id,
     title,
     city,
     country,
     imgLink,
     imgAlt,
-    link
+    nbTel,
+    adress,
+    description,
+    note,
+    opening,
+    closing
     FROM
     `cards`
-    WHERE
-    city = :city
-    AND 
+    WHERE 
     category = :category
     ;";
     $stmt=$pdo->prepare($requete);
-    $stmt->bindValue(':city', $city, PDO::PARAM_STR);
     $stmt->bindValue(':category', $category, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);

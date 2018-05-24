@@ -230,13 +230,34 @@ function adminAddCards(PDO $pdo): void
     <form action="" method="post" enctype="multipart/form-data">
         <label for="page[title]">Titre :</label><input type="text" name="page[title]" id="page[title]"><br>
         <label for="page[slug]">Lien :</label><input type="text" name="page[slug]" id="page[slug]"><br>
-        <label for="page[category]">Category :</label><input type="text" name="page[category]" id="page[category]"><br>
+        <label for="page[category]">Categorie :</label>
+        <select name="page[category]" id="page[category]">
+            <option value="hebergement">hebergement</option>
+            <option value="gastronomie">gastronomie</option>
+            <option value="place">place</option>
+            <option value="shopping">shopping</option>
+            <option value="culturel">culturel</option>
+            <option value="bienEtre">bienEtre</option>
+            <option value="sport">sport</option>
+            <option value="fly">fly</option>
+        </select><br>
         <label for="page[adress]">Adresse :</label><input type="text" name="page[adress]" id="page[adress]"><br>
         <label for="page[note]">Note :</label><input type="number" name="page[note]" id="page[note]"><br>
         <label for="page[description]">Description :</label><textarea name="page[description]" id="page[description]"></textarea><br>
         <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]"><br>
         <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]"><br>
-        <label for="page[city]">Ville :</label><input type="text" name="page[city]" id="page[city]"><br>
+        <label for="page[city]">Ville :</label>
+        <select id="page[city]" name="page[city]">
+            <option value="Paris" selected>Paris</option>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Rio">Rio</option>
+            <option value="Moscou">Moscou</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Nairobi">Nairobi</option>
+            <option value="Denver">Denver</option>
+            <option value="Helsinki">Helsinki</option>
+            <option value="Oslo">Oslo</option>
+        </select><br>
         <label for="page[country]">Pays :</label><input type="text" name="page[country]" id="page[country]"><br>
         <label for="page[opening]">Ouverture :</label><input type="text" name="page[opening]" id="page[opening]"><br>
         <label for="page[closing]">Fermeture :</label><input type="text" name="page[closing]" id="page[closing]"><br>

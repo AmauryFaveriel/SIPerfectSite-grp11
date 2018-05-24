@@ -217,7 +217,11 @@ function publicTopListCards(PDO $pdo, string $category)
 
 function publicListCards(PDO $pdo)
 {
-    $data = publicListCardsSQL($pdo);
+    if(isset($_GET['category'])){
+        $data = publicSelectedListCardsSQL($pdo, $_GET['category']);
+    } else {
+        $data = publicListCardsSQL($pdo);
+    }
     foreach ($data as $item):
     ?>
     <div class="col-lg-4 col-md-6 col-md-sm-12 item">

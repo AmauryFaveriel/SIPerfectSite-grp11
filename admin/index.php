@@ -59,6 +59,15 @@ switch($action) {
     case 'adminDeletePartners':
         adminDeletePartners($pdo);
         break;
+    case 'adminListTwitter':
+        adminListTwitter($pdo);
+        break;
+    case 'adminAddTwitter':
+        adminAddTwitter($pdo);
+        break;
+    case 'adminDeleteTwitter':
+        adminDeleteTwitter($pdo);
+        break;    
     case 'list':
     default:
         adminList();

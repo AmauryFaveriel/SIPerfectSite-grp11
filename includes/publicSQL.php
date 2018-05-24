@@ -6,24 +6,6 @@
  * Time: 11:09
  */
 
-function publicListCards(PDO $pdo): array
-{
-    $requete="
-    SELECT
-    `title`,
-    `imgLink`,
-    `imgAlt`,
-    `city`,
-    `country`,
-    `link`
-    FROM
-    `cards`
-    ;";
-    $stmt=$pdo->prepare($requete);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
 /**
  * @param PDO $pdo
  * @return array
@@ -43,6 +25,71 @@ function publicFooterSQL(PDO $pdo): array
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
 
+function publicListArticleSQL(PDO $pdo, int $nb)
+{
+    $requete="
+    SELECT
+    id,
+    title,
+    imgLink,
+    imgAlt
+    FROM
+    `article`
+    ORDER BY
+    id
+    DESC
+    LIMIT
+    0,$nb
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function publicSelectedListArticleSQL(PDO $pdo, int $nb)
+{
+    $requete="
+    SELECT
+    id,
+    title,
+    imgLink,
+    imgAlt
+    FROM
+    `article`
+    WHERE
+    category = :category
+    ORDER BY
+    id
+    DESC
+    LIMIT
+    0,$nb
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->bindValue(':category', htmlspecialchars($_GET['category']));
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function publicShowArticleSQL(PDO $pdo)
+{
+    $requete="
+    SELECT
+    title,
+    content,
+    imgLink,
+    imgAlt,
+    category
+    FROM
+    article
+    WHERE
+    id = :id
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->bindValue(':id', $_GET['id']);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 /**
  * @param PDO $pdo
  * @return array
@@ -51,13 +98,17 @@ function publicListCardsSQL(PDO $pdo)
 {
     $requete="
     SELECT
-    id,
     title,
     city,
     country,
     imgLink,
     imgAlt,
-    link
+    nbTel,
+    adress,
+    description,
+    note,
+    opening,
+    closing
     FROM
     `cards`
     ;";
@@ -66,26 +117,27 @@ function publicListCardsSQL(PDO $pdo)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function publicSelectedListCardsSQL(PDO $pdo, string $city, string $category)
+function publicSelectedListCardsSQL(PDO $pdo, string $category)
 {
     $requete="
     SELECT
-    id,
     title,
     city,
     country,
     imgLink,
     imgAlt,
-    link
+    nbTel,
+    adress,
+    description,
+    note,
+    opening,
+    closing
     FROM
     `cards`
-    WHERE
-    city = :city
-    AND 
+    WHERE 
     category = :category
     ;";
     $stmt=$pdo->prepare($requete);
-    $stmt->bindValue(':city', $city, PDO::PARAM_STR);
     $stmt->bindValue(':category', $category, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -109,6 +161,8 @@ function publicTopListCardsSQL(PDO $pdo, string $category)
     ORDER BY 
     note
     DESC
+    LIMIT 
+    0, 10
     ;";
     $stmt=$pdo->prepare($requete);
     $stmt->bindValue(':category', $category, PDO::PARAM_STR);

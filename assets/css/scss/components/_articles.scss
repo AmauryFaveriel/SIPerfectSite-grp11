@@ -20,12 +20,22 @@
     .filters{
         padding-top: 100px;
         
+        .form270{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            @include responsive-below(md){
+                display: block;
+            }
+        }
+        
         .item{
             text-align: center;
             height: 250px;
             margin-bottom: 40px;
             cursor: pointer;
             transition: 0.2s;
+            border: 0;
             @include responsive-above(md){
                 max-width: 45%;
             }

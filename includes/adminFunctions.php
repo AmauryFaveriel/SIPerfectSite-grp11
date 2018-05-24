@@ -51,6 +51,7 @@ function adminList()
     <a href="../admin/index.php?action=adminListArticle">Articles</a><br>
     <a href="../admin/index.php?action=adminListCards">Fiches pratiques</a><br>
     <a href="../admin/index.php?action=adminListPartners">Partenaires</a><br>
+    <a href="../admin/index.php?action=adminListTwitter">Fil actualité Twitter</a>
 <?php
     adminFooter();
 }
@@ -229,13 +230,34 @@ function adminAddCards(PDO $pdo): void
     <form action="" method="post" enctype="multipart/form-data">
         <label for="page[title]">Titre :</label><input type="text" name="page[title]" id="page[title]"><br>
         <label for="page[slug]">Lien :</label><input type="text" name="page[slug]" id="page[slug]"><br>
-        <label for="page[category]">Category :</label><input type="text" name="page[category]" id="page[category]"><br>
+        <label for="page[category]">Categorie :</label>
+        <select name="page[category]" id="page[category]">
+            <option value="hebergement">hebergement</option>
+            <option value="gastronomie">gastronomie</option>
+            <option value="place">place</option>
+            <option value="shopping">shopping</option>
+            <option value="culturel">culturel</option>
+            <option value="bienEtre">bienEtre</option>
+            <option value="sport">sport</option>
+            <option value="fly">fly</option>
+        </select><br>
         <label for="page[adress]">Adresse :</label><input type="text" name="page[adress]" id="page[adress]"><br>
         <label for="page[note]">Note :</label><input type="number" name="page[note]" id="page[note]"><br>
         <label for="page[description]">Description :</label><textarea name="page[description]" id="page[description]"></textarea><br>
         <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]"><br>
         <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]"><br>
-        <label for="page[city]">Ville :</label><input type="text" name="page[city]" id="page[city]"><br>
+        <label for="page[city]">Ville :</label>
+        <select id="page[city]" name="page[city]">
+            <option value="Paris" selected>Paris</option>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Rio">Rio</option>
+            <option value="Moscou">Moscou</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Nairobi">Nairobi</option>
+            <option value="Denver">Denver</option>
+            <option value="Helsinki">Helsinki</option>
+            <option value="Oslo">Oslo</option>
+        </select><br>
         <label for="page[country]">Pays :</label><input type="text" name="page[country]" id="page[country]"><br>
         <label for="page[opening]">Ouverture :</label><input type="text" name="page[opening]" id="page[opening]"><br>
         <label for="page[closing]">Fermeture :</label><input type="text" name="page[closing]" id="page[closing]"><br>
@@ -336,7 +358,7 @@ function adminShowPartners(PDO $pdo): void
 
 /**
  * @param PDO $pdo
- */
+*/
 function adminAddPartners(PDO $pdo): void
 {
     if(isset($_POST['page'])){
@@ -375,6 +397,54 @@ function adminDeletePartners(PDO $pdo): void
         <input type="submit" value="supprimer">
     </form>
     <?php
+}
+
+function adminListTwitter(PDO $pdo)
+{
+    $data = adminListTwitterSQL($pdo);
+    adminHeader();
+    displayHomeLink();
+    ?>
+    <h1>Liste comptes fil actualité</h1>
+    <a href="../admin/index.php?action=adminAddTwitter">Ajouter un compte</a>
+    <ul>
+        <?php foreach ($data as $page):?>
+            <li>
+                <p><?=$page['countname']?></p>
+                <a href="../admin/index.php?action=adminDeleteTwitter&id=<?=$page['id']?>">Supprimer</a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminAddTwitter(PDO $pdo): void
+{
+    if(isset($_POST['page'])){
+        adminAddTwitterSQL($pdo);
+        header('Location:index.php?action=adminListTwitter');
+        exit;
+    }
+    ?>
+    <a href="../admin/index.php?action=adminListTwitter">Liste fil actualité twitter</a><br>
+    <form action="" method="post" enctype="multipart/form-data">
+        <label for="page[name]">Nom :</label><input type="text" name="page[name]" id="page[name]"><br>
+        <input type="submit" value="Ajouter">
+    </form>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminDeleteTwitter(PDO $pdo): void
+{
+        adminDeleteTwitterSQL($pdo);
+        header('Location:index.php?action=adminListTwitter');
+        exit;
 }
 
 /**

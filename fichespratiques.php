@@ -50,7 +50,7 @@
                                <option value="Helsinki">Helsinki</option>
                                <option value="Oslo">Oslo</option>
                            </select>
-                       </form>
+
                    </h2>
                    <div class="row categories justify-content-between">
                        <button class="col-lg-3 col-md-4 col-sm-6 item">
@@ -94,8 +94,9 @@
                            <h5 class="subtitle">Pour un itinéraire spécifique</h5>
                        </button> 
                        <div class="col-md-12 box-search">
-                           <a href="#" class="btn btn-primary btn-lg">Rechercher</a>
+                           <input type="submit" class="btn btn-primary btn-lg" value="Rechercher"/>
                        </div>
+                       </form>
                    </div>
                </div>
             </div>
@@ -103,7 +104,7 @@
             <div class="results">
                 <div class="container">
                        <h1 class="title-results">
-                           6 résultats trouvés
+                           Résultats trouvés
                        </h1>
                     <div class="row justify-content-between">
                         <?php

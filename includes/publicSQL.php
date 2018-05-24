@@ -88,6 +88,26 @@ function publicSelectedListArticleSQL(PDO $pdo, int $nb)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function publicShowArticleSQL(PDO $pdo)
+{
+    $requete="
+    SELECT
+    title,
+    content,
+    imgLink,
+    imgAlt,
+    category
+    FROM
+    article
+    WHERE
+    id = :id
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->bindValue(':id', $_GET['id']);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 /**
  * @param PDO $pdo
  * @return array
@@ -154,6 +174,8 @@ function publicTopListCardsSQL(PDO $pdo, string $category)
     ORDER BY 
     note
     DESC
+    LIMIT 
+    0, 10
     ;";
     $stmt=$pdo->prepare($requete);
     $stmt->bindValue(':category', $category, PDO::PARAM_STR);

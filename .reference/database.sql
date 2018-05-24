@@ -23,9 +23,17 @@ CREATE TABLE `cards` (
   `note` int(2) NOT NULL,
   `imgLink` varchar(100) NOT NULL,
   `imgAlt` varchar(45) NOT NULL,
+  `city` varchar(60) NOT NULL,
+  `country` varchar(60) NOT NULL,
+  `opening` varchar(5) NOT NULL,
+  `closing` varchar(5) NOT NULL,
+  `link` varchar(100) NOT NULL,
+  `nbTel` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+
 
 CREATE TABLE `partners` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -35,3 +43,10 @@ CREATE TABLE `partners` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `twitter` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,6 +1,13 @@
 <?php
     require_once 'includes/connection.php';
     require 'includes/publicFunctions.php';
+
+    require "vendor/autoload.php";
+    use Abraham\TwitterOAuth\TwitterOAuth;
+
+    $oauth = new TwitterOAuth("nVqUnjKRE9Mn9FcKEn4GF03Xy", "1Y9W9P2j8Bbkx35BmQlG90R4Gkzreef4PgFDgYJl78OxyZXMJV");
+    $accessToken = $oauth->oauth2('oauth2/token', ['grant_type' => 'client_credentials']);
+    $access_token = $accessToken->access_token;
 ?>
 
 <html>
@@ -123,7 +130,47 @@
                     Suivez en direct l’actualité des companies aériennes partenaires
                 </h3>
 
-                <div class="demo"></div>
+                <div class="demo" style="overflow: auto">
+                    <?php
+                    require_once "includes/connection.php";
+                    $sql = "SELECT 
+                    `countname`
+                    FROM
+                    twitter
+                    ;";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute();
+                    $twitter = new TwitterOAuth("nVqUnjKRE9Mn9FcKEn4GF03Xy", "1Y9W9P2j8Bbkx35BmQlG90R4Gkzreef4PgFDgYJl78OxyZXMJV", null, $access_token);
+
+                        while (false !== $row = $stmt->fetch(PDO::FETCH_ASSOC)):
+                        $tweets = $twitter->get('statuses/user_timeline', [
+                            'screen_name' => $row['countname'],
+                            'include_rts' => false,
+                            'exclude_replies' => false,
+                            'count' => 50// On est obligé de filtrer après coup (cf doc)
+                        ]);
+                        if (isset($tweets3)){
+                            $tweets3 = array_merge($tweets3, $tweets);
+                        } else {
+                            $tweets3 = $tweets;
+                        }
+
+                        endwhile;
+                    function sortFunction( $a, $b ) {
+                        return strtotime($a->created_at) - strtotime($b->created_at);
+                    }
+                    usort($tweets3, "sortFunction");
+                     foreach($tweets3 as $tweet): ?>
+                        <img src="<?= $tweet->user->profile_image_url?>" alt="">
+                        <small>
+                            <a href="https://twitter.com/<?= $tweet->user->screen_name?>"><?= $tweet->user->name; ?>@<?= $tweet->user->screen_name; ?></a>
+                        </small>
+                        <li><?=$tweet->text; ?></li>
+                        <small>
+                            <time class="timeago" datetime="<?=$tweet->created_at; ?>"></time>
+                        </small> <br>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
 

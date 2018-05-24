@@ -188,9 +188,35 @@ function publicListArticle(PDO $pdo, int $nb)
     <?php endforeach;
 }
 
+function publicTopListCards(PDO $pdo, string $category)
+{
+    $data =publicTopListCardsSQL($pdo, $category);
+    $index = 1;
+    foreach ($data as $item): ?>
+        <div class="col-md-12 item">
+            <div class="left">
+                <div class="left-2">
+                    <div class="circle">
+                        <?=$index?>
+                    </div>
+                </div>
+                <div class="right-2">
+                    <h3><?=$item['title']?></h3>
+                    <h5><?=$item['city']?>, <?=$item['country']?></h5>
+                    <a href="#"><?=$item['link']?> <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="right">
+                <img src="assets/img/hotels.jpg" alt="miniature">
+            </div>
+        </div>
+        <?php
+        $index++;
+        endforeach;
+}
+
 function test(PDO $pdo)
-{?>
-<?php
+{
     if(isset($_POST['select'])){
 ?>
         <form action="" method="post">

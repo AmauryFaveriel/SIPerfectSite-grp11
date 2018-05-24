@@ -51,6 +51,7 @@ function adminList()
     <a href="../admin/index.php?action=adminListArticle">Articles</a><br>
     <a href="../admin/index.php?action=adminListCards">Fiches pratiques</a><br>
     <a href="../admin/index.php?action=adminListPartners">Partenaires</a><br>
+    <a href="../admin/index.php?action=adminListTwitter">Fil actualité Twitter</a>
 <?php
     adminFooter();
 }
@@ -336,7 +337,7 @@ function adminShowPartners(PDO $pdo): void
 
 /**
  * @param PDO $pdo
- */
+*/
 function adminAddPartners(PDO $pdo): void
 {
     if(isset($_POST['page'])){
@@ -375,6 +376,54 @@ function adminDeletePartners(PDO $pdo): void
         <input type="submit" value="supprimer">
     </form>
     <?php
+}
+
+function adminListTwitter(PDO $pdo)
+{
+    $data = adminListTwitterSQL($pdo);
+    adminHeader();
+    displayHomeLink();
+    ?>
+    <h1>Liste comptes fil actualité</h1>
+    <a href="../admin/index.php?action=adminAddTwitter">Ajouter un compte</a>
+    <ul>
+        <?php foreach ($data as $page):?>
+            <li>
+                <p><?=$page['countname']?></p>
+                <a href="../admin/index.php?action=adminDeleteTwitter&id=<?=$page['id']?>">Supprimer</a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminAddTwitter(PDO $pdo): void
+{
+    if(isset($_POST['page'])){
+        adminAddTwitterSQL($pdo);
+        header('Location:index.php?action=adminListTwitter');
+        exit;
+    }
+    ?>
+    <a href="../admin/index.php?action=adminListTwitter">Liste fil actualité twitter</a><br>
+    <form action="" method="post" enctype="multipart/form-data">
+        <label for="page[name]">Nom :</label><input type="text" name="page[name]" id="page[name]"><br>
+        <input type="submit" value="Ajouter">
+    </form>
+    <?php
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminDeleteTwitter(PDO $pdo): void
+{
+        adminDeleteTwitterSQL($pdo);
+        header('Location:index.php?action=adminListTwitter');
+        exit;
 }
 
 /**

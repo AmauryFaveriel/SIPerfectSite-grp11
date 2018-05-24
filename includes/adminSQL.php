@@ -375,3 +375,54 @@ function adminDeletePartnersSQL(PDO $pdo): void
     $stmt -> bindValue(':id', $_POST['page']['id']);
     $stmt -> execute();
 }
+
+/**
+ * @param PDO $pdo
+ * @return array
+ */
+function adminListTwitterSQL(PDO $pdo)
+{
+    $requete="
+    SELECT
+    id,
+    countname
+    FROM
+    `twitter`
+    ;";
+    $stmt = $pdo -> prepare($requete);
+    $stmt -> execute();
+    return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminAddTwitterSQL(PDO $pdo): void
+{
+    $requete="
+    INSERT INTO
+    `twitter`
+    (countname) 
+    VALUES 
+    (:countname)
+    ;";
+    $stmt=$pdo->prepare($requete);
+    $stmt->bindValue('countname', htmlspecialchars($_POST['page']['name']));
+    $stmt->execute();
+}
+
+/**
+ * @param PDO $pdo
+ */
+function adminDeleteTwitterSQL(PDO $pdo): void
+{
+    $requete="
+    DELETE FROM
+    `twitter`
+    WHERE
+    `id` = :id 
+    ;";
+    $stmt = $pdo -> prepare($requete);
+    $stmt -> bindValue(':id', $_GET['id']);
+    $stmt -> execute();
+}

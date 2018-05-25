@@ -25,7 +25,7 @@
             
             <div class="container">
                 <div class="filters">
-                    <ul class="menu">
+                    <ul class="menu menu-bai">
                         <li class="active">Gastronomie</li>
                         <li>Bien-Être</li>
                         <li>Cultures</li>
@@ -33,72 +33,158 @@
                     </ul>
                 </div>
                 
-                <div class="carousel">
-                    
-                        <div class="photo">
-                            <img src="assets/img/hotels.jpg" alt="image">
+                <div class="carousel-display">
+                    <div id="carousel-gastronomie" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-gastronomie" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-gastronomie" data-slide-to="1"></li>
+                            <li data-target="#carousel-gastronomie" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Second slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Third slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
+                            </div>
                         </div>
-                    <div class="container">
-                        <div class="description">
-                            <h3 class="title">Nordegg</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam non, maiores ex reiciendis veniam error itaque recusandae dignissimos voluptatum tempora porro quo necessitatibus alias! Molestias quia dolor delectus minima, nam ut expedita repellat ipsum adipisci.</p>
-                        </div>
+                        <a class="carousel-control-prev" href="#carousel-gastronomie" role="button" data-slide="prev">
+                            <i class="fas fa-arrow-circle-left"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-gastronomie" role="button" data-slide="next">
+                            <i class="fas fa-arrow-circle-right"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                </div>
-            </div>
-            
-            <div class="gallery">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <img src="assets/img/hvitserkur.jpg" alt="miniature">
+                    <div id="carousel-bienetre" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-bienetre" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-bienetre" data-slide-to="1"></li>
+                            <li data-target="#carousel-bienetre" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Second slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Third slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <img src="assets/img/hotels.jpg" alt="miniature">
+                        <a class="carousel-control-prev" href="#carousel-bienetre" role="button" data-slide="prev">
+                            <i class="fas fa-arrow-circle-left"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-bienetre" role="button" data-slide="next">
+                            <i class="fas fa-arrow-circle-right"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div id="carousel-culture" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-culture" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-culture" data-slide-to="1"></li>
+                            <li data-target="#carousel-culture" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Second slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Third slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <img src="assets/img/indonesia.jpg" alt="miniature">
+                        <a class="carousel-control-prev" href="#carousel-culture" role="button" data-slide="prev">
+                            <i class="fas fa-arrow-circle-left"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-culture" role="button" data-slide="next">
+                            <i class="fas fa-arrow-circle-right"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div id="carousel-sport" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-sport" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-sport" data-slide-to="1"></li>
+                            <li data-target="#carousel-sport" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Second slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Third slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lorem ipsum dolor</h5>
+                                    <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <img src="assets/img/hvitserkur.jpg" alt="miniature">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <img src="assets/img/indonesia.jpg" alt="miniature">
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <img src="assets/img/hotels.jpg" alt="miniature">
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <img src="assets/img/hotels.jpg" alt="miniature">
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <img src="assets/img/hvitserkur.jpg" alt="miniature">
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <img src="assets/img/indonesia.jpg" alt="miniature">
-                            </div>
-                        </div>
-                        <div class="col-md-12 btn-box">
-                            <a href="" class="btn btn-primary btn-lg">En voir plus...</a>
-                        </div>
+                        <a class="carousel-control-prev" href="#carousel-sport" role="button" data-slide="prev">
+                            <i class="fas fa-arrow-circle-left"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-sport" role="button" data-slide="next">
+                            <i class="fas fa-arrow-circle-right"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
                 </div>
             </div>

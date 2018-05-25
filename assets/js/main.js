@@ -19,6 +19,55 @@ function stopthisshit(event){
     return false;
 }
 
+if(document.querySelector('.boiteaimages') !== null){
+    var tabs = document.querySelectorAll('.menu-bai > li');
+    
+    
+    tabs[0].addEventListener('click', function(){
+        tabs[0].classList.add('active');
+        tabs[1].classList.remove('active');
+        tabs[2].classList.remove('active');
+        tabs[3].classList.remove('active');
+        document.querySelector('#carousel-gastronomie').style.display = "block";
+        document.querySelector('#carousel-bienetre').style.display = "none";
+        document.querySelector('#carousel-culture').style.display = "none";
+        document.querySelector('#carousel-sport').style.display = "none";
+    })
+    
+    tabs[1].addEventListener('click', function(){
+        tabs[0].classList.remove('active');
+        tabs[1].classList.add('active');
+        tabs[2].classList.remove('active');
+        tabs[3].classList.remove('active');
+        document.querySelector('#carousel-gastronomie').style.display = "none";
+        document.querySelector('#carousel-bienetre').style.display = "block";
+        document.querySelector('#carousel-culture').style.display = "none";
+        document.querySelector('#carousel-sport').style.display = "none";
+    })
+    
+    tabs[2].addEventListener('click', function(){
+        tabs[0].classList.remove('active');
+        tabs[1].classList.remove('active');
+        tabs[2].classList.add('active');
+        tabs[3].classList.remove('active');
+        document.querySelector('#carousel-gastronomie').style.display = "none";
+        document.querySelector('#carousel-bienetre').style.display = "none";
+        document.querySelector('#carousel-culture').style.display = "block";
+        document.querySelector('#carousel-sport').style.display = "none";
+    })
+    
+    tabs[3].addEventListener('click', function(){
+        tabs[0].classList.remove('active');
+        tabs[1].classList.remove('active');
+        tabs[2].classList.remove('active');
+        tabs[3].classList.add('active');
+        document.querySelector('#carousel-gastronomie').style.display = "none";
+        document.querySelector('#carousel-bienetre').style.display = "none";
+        document.querySelector('#carousel-culture').style.display = "none";
+        document.querySelector('#carousel-sport').style.display = "block";        
+    })
+}
+
 if(document.querySelector('.twitter-feed') !== null){
     /**
  * Timeago is a jQuery plugin that makes it easy to support automatically

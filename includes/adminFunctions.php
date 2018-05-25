@@ -21,9 +21,18 @@ function adminHeader()
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Panel Admin - Une Année De Voyages</title>
 </head>
-<body>
+<body class="admin">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="./index.php">UADV : Panel Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a href="../index.php" class="btn btn-outline-light">Aller sur le site</a>        
+    </nav>
+    <div class="container">
 
 <?php
 
@@ -35,8 +44,9 @@ function adminHeader()
 function adminFooter()
 {
 ?>
+    </div>
 </body>
-    </html>
+</html>
 <?php
 }
 
@@ -48,10 +58,16 @@ function adminList()
 {
     adminHeader();
 ?>
-    <a href="../admin/index.php?action=adminListArticle">Articles</a><br>
-    <a href="../admin/index.php?action=adminListCards">Fiches pratiques</a><br>
-    <a href="../admin/index.php?action=adminListPartners">Partenaires</a><br>
-    <a href="../admin/index.php?action=adminListTwitter">Fil actualité Twitter</a>
+   
+
+    <h1>Bienvenue sur le Panel Admin</h1>
+    <p class="mb-5">Utilisez les liens ci-dessous pour modifier le contenu du site :</p>
+    <div class="list-group">
+        <a href="../admin/index.php?action=adminListArticle" class="list-group-item list-group-item-action">Articles</a>
+        <a href="../admin/index.php?action=adminListCards" class="list-group-item list-group-item-action">Fiches pratiques</a>
+        <a href="../admin/index.php?action=adminListPartners" class="list-group-item list-group-item-action">Partenaires</a>
+        <a href="../admin/index.php?action=adminListTwitter" class="list-group-item list-group-item-action">Fil d'actualité (Twitter)</a>
+    </div>
 <?php
     adminFooter();
 }
@@ -63,18 +79,40 @@ function adminListArticle(PDO $pdo): void
 {
     $data = adminListArticleSQL($pdo);
     adminHeader();
-    displayHomeLink();
+    
     ?>
-        <h1>Liste articles</h1>
-        <a href="../admin/index.php?action=adminAddArticle">Ajouter un article</a>
-        <ul>
-        <?php foreach ($data as $page):?>
-            <li>
-                <h2><?=$page['title']?></h2>
-                <a href="../admin/index.php?action=adminShowArticle&id=<?=$page['id']?>">Détails</a>
-            </li>
-        <?php endforeach; ?>
-        </ul>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../admin/index.php">Panel Admin : Accueil</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Liste des articles</li>
+            </ol>
+        </nav>
+        <div class="row mb-3">
+           <div class="col-md-8">
+               <h1>Liste des articles</h1>
+           </div>
+           <div class="col-md-4">
+               <a href="../admin/index.php?action=adminAddArticle" class="btn btn-success float-right mt-3">Ajouter un article <i class="fas fa-plus ml-2"></i></a>
+           </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nom de l'article</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($data as $page):?>
+                    <tr>
+                        <th scope="row"><?=$page['id']?></th>
+                        <td><?=$page['title']?></td>
+                        <td><a href="../admin/index.php?action=adminShowArticle&id=<?=$page['id']?>" class="btn btn-secondary">Voir</a><a href="../admin/index.php?action=adminEditArticle&id=<?=$page['id']?>" class="btn btn-success">Modifier</a><a href="../admin/index.php?action=adminDeleteArticle&id=<?=$page['id']?>" class="btn btn-danger">Supprimer</a></td>
+                    </tr>            
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     <?php
 }
 
@@ -173,18 +211,40 @@ function adminListCards(PDO $pdo): void
 {
     $data = adminListCardsSQL($pdo);
     adminHeader();
-    displayHomeLink();
+    
     ?>
-    <h1>Liste fiches pratiques</h1>
-    <a href="../admin/index.php?action=adminAddCards">Ajouter une fiche pratique</a>
-    <ul>
-        <?php foreach ($data as $page):?>
-            <li>
-                <h2><?=$page['title']?></h2>
-                <a href="../admin/index.php?action=adminShowCards&id=<?=$page['id']?>">Détails</a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../admin/index.php">Panel Admin : Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Liste des fiches pratiques</li>
+        </ol>
+    </nav>
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <h1>Liste des fiches pratiques</h1>
+        </div>
+        <div class="col-md-4">
+            <a href="../admin/index.php?action=adminAddCards" class="btn btn-success float-right mt-3">Ajouter une fiche pratique <i class="fas fa-plus ml-2"></i></a>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom de la fiche pratique</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($data as $page):?>
+            <tr>
+                <th scope="row"><?=$page['id']?></th>
+                <td><?=$page['title']?></td>
+                <td><a href="../admin/index.php?action=adminShowCards&id=<?=$page['id']?>" class="btn btn-secondary">Voir</a><a href="../admin/index.php?action=adminEditCards&id=<?=$page['id']?>" class="btn btn-success">Modifier</a><a href="../admin/index.php?action=adminDeleteCards&id=<?=$page['id']?>" class="btn btn-danger">Supprimer</a></td>
+            </tr>            
+            <?php endforeach; ?>
+        </tbody>
+    </table>
     <?php
 }
 
@@ -327,18 +387,43 @@ function adminListPartners(PDO $pdo)
 {
     $data = adminListPartnersSQL($pdo);
     adminHeader();
-    displayHomeLink();
+    
     ?>
-    <h1>Liste partenaires</h1>
-    <a href="../admin/index.php?action=adminAddPartners">Ajouter un partenaire</a>
-    <ul>
-        <?php foreach ($data as $page):?>
-            <li>
-                <img src="<?=$page['imgLink']?>" alt="<?=$page['imgAlt']?>">
-                <a href="../admin/index.php?action=adminShowPartners&id=<?=$page['id']?>">Détails</a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../admin/index.php">Panel Admin : Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Liste des partenaires</li>
+        </ol>
+    </nav>
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <h1>Liste des partenaires</h1>
+        </div>
+        <div class="col-md-4">
+            <a href="../admin/index.php?action=adminAddPartners" class="btn btn-success float-right mt-3">Ajouter un partenaire <i class="fas fa-plus ml-2"></i></a>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom du partenaire</th>
+                <th scope="col">Image</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($data as $page):?>
+            <tr>
+                <th scope="row"><?=$page['id']?></th>
+                <td><?=$page['imgAlt']?></td>
+                <td><img src="<?=$page['imgLink']?>" alt="<?=$page['imgAlt']?>"></td>
+                <td><a href="../admin/index.php?action=adminDeletePartners&id=<?=$page['id']?>" class="btn btn-danger">Supprimer</a></td>
+            </tr>            
+            <?php endforeach; ?>
+        </tbody>
+    </table>
     <?php
 }
 
@@ -403,18 +488,41 @@ function adminListTwitter(PDO $pdo)
 {
     $data = adminListTwitterSQL($pdo);
     adminHeader();
-    displayHomeLink();
+    
     ?>
-    <h1>Liste comptes fil actualité</h1>
-    <a href="../admin/index.php?action=adminAddTwitter">Ajouter un compte</a>
-    <ul>
-        <?php foreach ($data as $page):?>
-            <li>
-                <p><?=$page['countname']?></p>
-                <a href="../admin/index.php?action=adminDeleteTwitter&id=<?=$page['id']?>">Supprimer</a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../admin/index.php">Panel Admin : Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Liste des comptes liés au fil d'actualité (Twitter)</li>
+        </ol>
+    </nav>
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <h1>Liste des comptes liés au fil d'actualité (Twitter)</h1>
+        </div>
+        <div class="col-md-4">
+            <a href="../admin/index.php?action=adminAddTwitter" class="btn btn-success float-right mt-3">Ajouter un compte Twitter <i class="fas fa-plus ml-2"></i></a>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom du compte</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($data as $page):?>
+            <tr>
+                <th scope="row"><?=$page['id']?></th>
+                <td><?=$page['countname']?></td>
+                <td><a href="../admin/index.php?action=adminDeleteTwitter&id=<?=$page['id']?>" class="btn btn-danger">Supprimer</a></td>
+            </tr>            
+            <?php endforeach; ?>
+        </tbody>
+    </table>
     <?php
 }
 

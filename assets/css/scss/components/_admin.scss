@@ -1,0 +1,17 @@
+.admin{
+    .navbar {
+        font-family: sans-serif;
+        margin-bottom: 50px;
+    }
+    
+    .table-bordered td, .table-bordered th{
+        img{
+            max-height: 50px;
+            max-width: 100px;
+        }
+        
+        .btn{
+            margin-right: 8px;
+        }
+    }
+}

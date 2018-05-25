@@ -158,6 +158,7 @@ function adminEditArticle(PDO $pdo): void
         <input type="hidden" name="page[id]" value="<?=$data['id']?>">
         <label for="page[title]">Titre :</label><input type="text" name="page[title]" id="page[title]" value="<?=$data['title']?>"><br>
         <label for="page[slug]">Lien :</label><input type="text" name="page[slug]" id="page[slug]" value="<?=$data['slug']?>"><br>
+        <label for="page[category]">Catégorie :</label><input type="text" name="page[category]" id="page[category]" value="<?=$data['category']?>"><br>
         <label for="page[content]">Texte :</label><textarea name="page[content]" id="page[content]"><?=$data['content']?></textarea><br>
         <label for="page[imgLink]">Image (lien) :</label><input type="text" name="page[imgLink]" id="page[imgLink]" value="<?=$data['imgLink']?>"><br>
         <label for="page[imgAlt]">Nom image :</label><input type="text" name="page[imgAlt]" id="page[imgAlt]" value="<?=$data['imgAlt']?>"><br>

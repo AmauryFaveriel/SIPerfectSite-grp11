@@ -117,6 +117,7 @@ function adminEditArticleSQL(PDO $pdo): void
     id = :id
     ;";
     $stmt = $pdo -> prepare($requete);
+    $stmt->bindValue(':id', $_POST['page']['id']);
     $stmt->bindValue(':title', htmlspecialchars($_POST['page']['title']), PDO::PARAM_STR);
     $stmt->bindValue(':slug', htmlspecialchars($_POST['page']['slug']), PDO::PARAM_STR);
     $stmt->bindValue(':category', htmlspecialchars($_POST['page']['category']), PDO::PARAM_STR);

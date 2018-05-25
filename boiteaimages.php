@@ -42,21 +42,21 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="First slide">
+                                <img class="d-block w-100" src="assets/img/food1.jpg" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Second slide">
+                                <img class="d-block w-100" src="assets/img/food2.jpg" alt="Second slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Third slide">
+                                <img class="d-block w-100" src="assets/img/food3.jpg" alt="Third slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
@@ -80,21 +80,21 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="First slide">
+                                <img class="d-block w-100" src="assets/img/bienetre1.jpg" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Second slide">
+                                <img class="d-block w-100" src="assets/img/bienetre2.jpg" alt="Second slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Third slide">
+                                <img class="d-block w-100" src="assets/img/bienetre3.jpg" alt="Third slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
@@ -118,21 +118,21 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="First slide">
+                                <img class="d-block w-100" src="assets/img/culture1.jpg" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Second slide">
+                                <img class="d-block w-100" src="assets/img/culture2.jpg" alt="Second slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Third slide">
+                                <img class="d-block w-100" src="assets/img/culture3.jpg" alt="Third slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
@@ -156,21 +156,21 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="First slide">
+                                <img class="d-block w-100" src="assets/img/sport1.jpg" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Second slide">
+                                <img class="d-block w-100" src="assets/img/sport2.jpg" alt="Second slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/img/indonesia.jpg" alt="Third slide">
+                                <img class="d-block w-100" src="assets/img/sport3.jpg" alt="Third slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Lorem ipsum dolor</h5>
                                     <p>Sit amet, consectetur adipisicing elit. Accusamus ullam, quia blanditiis temporibus possimus facilis.</p>

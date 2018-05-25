@@ -37,9 +37,9 @@ function publicHeader()
                         TOP 100
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="top100hotels.php">Meilleurs Hôtels</a>
-                        <a class="dropdown-item" href="#">Meilleurs Restaurants</a>
-                        <a class="dropdown-item" href="#">Meilleurs SPAs & Thalassos</a>
+                        <a class="dropdown-item" href="top100.php?category=hebergement">Meilleurs Hôtels</a>
+                        <a class="dropdown-item" href="top100.php?category=gastronomie">Meilleurs Restaurants</a>
+                        <a class="dropdown-item" href="top100.php?category=bienEtre">Meilleurs SPAs & Thalassos</a>
                     </div>
                 </li>
                 <li class="nav-item">

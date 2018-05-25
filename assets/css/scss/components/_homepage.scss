@@ -173,8 +173,62 @@
         }
         
         .demo{
-            height: 400px;
-            background: #dedede;
+            
+            .tweet{
+                display: flex;
+                justify-content: flex-start;
+                border: solid 1px #dedede;
+                padding: 25px;
+                box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.08);
+                border-radius: 3px;
+                margin-bottom: 15px;
+                
+                .left{
+                    padding-right: 14px;
+                    
+                    .avatar{
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 100%;
+                    }
+                }
+                
+                .right{
+                    width: 100%;
+                    
+                    .name{
+                        font-size: 18px;
+                        margin: 0;
+                        font-weight: 700;
+                        
+                        a{
+                            color: #292F33;
+                        }
+                    }
+                    
+                    .at{
+                        font-size: 14px;
+                        color: #8899A6;
+                        margin: 0;
+                        font-weight: 400;
+                        padding-top: 3px;
+                    }
+                    
+                    .text{
+                        font-size: 20px;
+                        padding-top: 10px;
+                    }
+                    
+                    .timeago{
+                        text-align: right;
+                        display: block;
+                        color: #8899A6;
+                        font-weight: 400;
+                        font-size: 13px;
+                        padding-right: 15px;
+                    }
+                }
+            }
         }
     }
 }

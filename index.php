@@ -130,7 +130,7 @@
                     Suivez en direct l’actualité des companies aériennes partenaires
                 </h3>
 
-                <div class="demo" style="overflow: auto">
+                <div class="demo">
                     <?php
                     require_once "includes/connection.php";
                     $sql = "SELECT 
@@ -147,7 +147,7 @@
                             'screen_name' => $row['countname'],
                             'include_rts' => false,
                             'exclude_replies' => false,
-                            'count' => 50// On est obligé de filtrer après coup (cf doc)
+                            'count' => 10// On est obligé de filtrer après coup (cf doc) merci bro
                         ]);
                         if (isset($tweets3)){
                             $tweets3 = array_merge($tweets3, $tweets);
@@ -162,14 +162,23 @@
                     usort($tweets3, "sortFunction");
                     $tweets3 = array_reverse($tweets3);
                      foreach($tweets3 as $tweet): ?>
-                        <img src="<?= $tweet->user->profile_image_url?>" alt="">
-                        <small>
-                            <a href="https://twitter.com/<?= $tweet->user->screen_name?>"><?= $tweet->user->name; ?>@<?= $tweet->user->screen_name; ?></a>
-                        </small>
-                        <li><?=$tweet->text; ?></li>
-                        <small>
-                            <time class="timeago" datetime="<?=$tweet->created_at; ?>"></time>
-                        </small> <br>
+                        <div class="tweet">
+                            <div class="left">
+                                <a href="https://twitter.com/<?= $tweet->user->screen_name?>" target="_blank">
+                                    <img src="<?= $tweet->user->profile_image_url?>" alt="" class="avatar">
+                                </a>
+                            </div>
+                            <div class="right">
+                                <h3 class="name">
+                                    <a href="https://twitter.com/<?= $tweet->user->screen_name?>" target="_blank"><?= $tweet->user->name; ?></a>
+                                </h3>
+                                <h5 class="at">@<?= $tweet->user->screen_name; ?></h5>
+                                <p class="text">
+                                    <?= $tweet->text ?>
+                                </p>
+                                <time class="timeago" datetime="<?= date("c",strtotime($tweet->created_at)); ?>"></time>
+                            </div>
+                        </div> 
                     <?php endforeach; ?>
                 </div>
             </div>

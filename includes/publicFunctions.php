@@ -13,7 +13,7 @@ function publicHeader()
 ?>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img class="logo" src="assets/img/logo.png" alt="logo"></a>
+        <a class="navbar-brand" href="index.php"><img class="logo" src="assets/img/logo.png" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,7 +46,7 @@ function publicHeader()
                     <a class="nav-link" href="quisommesnous.php">Qui sommes-nous ?</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="contact.php">Nous contacter</a>
+                    <a class="nav-link" href="contact.php">Nous contacter</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
